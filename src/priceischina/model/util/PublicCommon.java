@@ -1,4 +1,4 @@
-﻿package priceischina.model.util;
+﻿package pricechina.model.util;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
@@ -14,7 +14,7 @@ public class PublicCommon {
 	public static EntityManager getEntityManager() {
 		return emf.createEntityManager();
 	}
-	       
+	
 	public static void close() {
 		emf.close();		
 	}

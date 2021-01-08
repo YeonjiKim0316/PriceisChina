@@ -1,4 +1,4 @@
-package priceischina.model.dto;
+package pricechina.model.dto;
 
 import java.io.Serializable;
 
@@ -7,6 +7,7 @@ import javax.persistence.Id;
 import javax.persistence.NamedQuery;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,30 +16,20 @@ import lombok.Setter;
 @NoArgsConstructor
 @Getter
 @Setter
-
+@Builder
+@NamedQuery(name = "findproductAll", query = "select p from Product p")
+@NamedQuery(name = "updateName", query = "update Product p set p.productName = :name where p.id = :id")
+@NamedQuery(name = "updatePrice", query = "update Product p set p.productPrice = :price where p.id = :id")
 @Entity(name = "Product")
 public class ProductDTO implements Serializable {
 	@Id
-	int productId;
+	String id;
 	String productName;
-	int quantity;
-	int price;
+	int productPrice;
+
 	@Override
 	public String toString() {
-		StringBuilder builder = new StringBuilder();
-		builder.append("ProductDTO [productId=");
-		builder.append(productId);
-		builder.append(", productName=");
-		builder.append(productName);
-		builder.append(", quantity=");
-		builder.append(quantity);
-		builder.append(", price=");
-		builder.append(price);
-		builder.append("]");
-		return builder.toString();
+		return "ProductDTO [id=" + id + ", productName=" + productName + ", productPrice=" + productPrice + "]";
 	}
-	
-	
-	
-}
 
+}

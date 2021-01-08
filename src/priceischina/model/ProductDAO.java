@@ -1,28 +1,21 @@
-package priceischina.model;
+package pricechina.model;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-import priceischina.model.dto.OrderedDTO;
-import priceischina.model.util.PublicCommon;
+import pricechina.model.dto.ProductDTO;
+import pricechina.model.util.PublicCommon;
 
 public class ProductDAO {
 	
-	public static boolean insert(String id, int gameresult) {
+	
+	public static ArrayList<ProductDTO> productAll() {
 		EntityManager em = PublicCommon.getEntityManager();
-		EntityTransaction tx = em.getTransaction();
-		boolean result = false;
+		ArrayList<ProductDTO> result = null;
 		try {
-			tx.begin();
-			OrderedDTO newscore = new OrderedDTO(id, gameresult,
-					new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(System.currentTimeMillis())));
-			em.persist(newscore);
-			result = true;
-			tx.commit();
+			result = (ArrayList<ProductDTO>) em.createNamedQuery("findproductAll").getResultList();
 		}catch(Exception e) {
 			e.printStackTrace();
 			throw e;
@@ -31,18 +24,89 @@ public class ProductDAO {
 		}
 		return result;
 	}
-
-	public static ArrayList<OrderedDTO> getLeaderboard() {
+	
+	// CRUD - JOIN - insert
+	public static String insertProduct(String id, String pname, int pprice) {
 		EntityManager em = PublicCommon.getEntityManager();
-		ArrayList<OrderedDTO> result = null;
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		String result = "success";
+		ProductDTO product = null;
 		try {
-			result = (ArrayList<OrderedDTO>) em.createNamedQuery("findLeaderboard").getResultList();
-		}catch(Exception e) {
+			product = ProductDTO.builder().id(id).productName(pname).productPrice(pprice).build();
+			em.persist(product);
+			tx.commit();
+		} catch (Exception e) {
+			result = "fail";
 			e.printStackTrace();
-			throw e;
-		}finally {
+		} finally {
 			em.close();
 		}
 		return result;
+	}
+
+	// CRUD - UPDATEName
+	public static boolean updateName(String id, String newName) {
+		EntityManager em = PublicCommon.getEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		boolean result = false;
+		try {
+			int res = em.createNamedQuery("updateName").setParameter("id", id).setParameter("name", newName).executeUpdate();
+			tx.commit();
+			if (res == 1) {
+				result = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			em.close();
+		}
+		return result;
+	}
+	
+	// CRUD - UPDATEPrice
+	public static boolean updatePrice(String id, int newPrice) {
+		EntityManager em = PublicCommon.getEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+		boolean result = false;
+		try {
+			int res = em.createNamedQuery("updatePrice").setParameter("id", id).setParameter("price", newPrice).executeUpdate();
+			tx.commit();
+			if (res == 1) {
+				result = true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			em.close();
+		}
+		return result;
+	}
+
+	// CRUD - DELETE
+	public static boolean delete(String id) {
+		EntityManager em = PublicCommon.getEntityManager();
+		EntityTransaction tx = em.getTransaction();
+		tx.begin();
+//		String sql1 = "delete from leaderboard where id=?";
+		String sql = "delete from product where id=?";
+		try {
+//			int result1 = em.createNativeQuery(sql1).setParameter(1, id).executeUpdate();
+			int result = em.createNativeQuery(sql).setParameter(1, id).executeUpdate();
+			tx.commit();
+			if (result == 1) {
+				return true;
+			}
+		} catch (Exception e) {
+			e.printStackTrace();
+			throw e;
+		} finally {
+			em.close();
+		}
+		return false;
 	}
 }

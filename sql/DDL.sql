@@ -16,7 +16,7 @@ create table product (
 	productId number(10) primary key,
 	productName varchar(20) not null,
 	quantity number(10) not null,
-	price number(30) not null
+	price number(30) not nul
 );
 
 
@@ -25,7 +25,7 @@ create table ordered (
 	id varchar2(20) not null,
 	productId number(10) not null,
 	orderedQuantity number(10) not null,
-	price number(30) not null
+	timestamp varchar(30) not null
 );
 
 
@@ -34,6 +34,5 @@ alter table ordered add foreign key (productId) references product (productId);
 
 insert into client values ('testid', 'testpw', 'F', 30);
 insert into product values (1, 'testproduct', 10, 35000);
-insert into ordered values (ordered_seq.nextval, 'testid', 1, 100, 35000);
 commit;
 
