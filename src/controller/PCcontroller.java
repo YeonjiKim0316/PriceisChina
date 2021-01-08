@@ -12,11 +12,11 @@ import javax.servlet.http.HttpSession;
 
 import priceischina.model.dto.ClientDTO;
 import lombok.extern.slf4j.Slf4j;
-import service.LoginService;
+import service.PCService;
 
 @WebServlet("/controller")
 @Slf4j
-public class LoginController extends HttpServlet {
+public class PCcontroller extends HttpServlet {
 
 	protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		process(request, response);
@@ -40,8 +40,8 @@ public class LoginController extends HttpServlet {
 						updatesuccess(req, res);
 					} else if(command.equals("logout")) { 
 						logout(req, res);
-					} else if(command.equals("delete")) { 
-						delete(req, res);
+					} else if(command.equals("deleteID")) { 
+						//deleteID(req, res);
 					} else {
 						req.setAttribute("msg", "유효하지 않은 command입니다.");
 						req.getRequestDispatcher("view/error.jsp").forward(req, res);
@@ -71,11 +71,11 @@ public class LoginController extends HttpServlet {
 		String url = "view/error.jsp";
 		HttpSession session = req.getSession();
 		try {
-			String loginresult = LoginService.login(id, pw);
+			String loginresult = PCService.login(id, pw);
 			if(loginresult.equals("success")) {
 				session.setAttribute("id", id);
 				session.setAttribute("pw", pw);
-				url = "main.jsp";
+				url = "products.html";
 				log.info( id +" 로그인 성공");
 			} else if(loginresult.equals("id")) {
 				req.setAttribute("msg", "ID를 다시 확인해주세요");
@@ -95,7 +95,7 @@ public class LoginController extends HttpServlet {
 			String pw = req.getParameter("pw");
 			String url = "view/error.jsp";
 			HttpSession session = req.getSession();
-			try {String joinresult = LoginService.join(id, pw);
+			try {String joinresult = PCService.join(id, pw);
 				if(joinresult.equals("success")) {
 					session.setAttribute("id", id);
 					session.setAttribute("pw", pw);
@@ -117,7 +117,7 @@ public class LoginController extends HttpServlet {
 			String newPw = req.getParameter("newPw");
 			String url = "view/error.jsp";
 			try {
-				if(LoginService.update(id, newPw)) {
+				if(PCService.update(id, newPw)) {
 					session.setAttribute("pw", newPw);
 					url="crud/updateSuccess.jsp";
 					log.info("회원정보 수정 : "+ session.getAttribute("id"));
@@ -134,7 +134,7 @@ public class LoginController extends HttpServlet {
 			HttpSession session = req.getSession();
 			String id = (String) session.getAttribute("id");		
 			try {		
-				LoginService.delete(id);	
+				PCService.deleteID(id);	
 				url = "crud/deleteSuccess.jsp";
 				log.info("회원 탈퇴 : "+ session.getAttribute("id"));
 			} catch (Exception e) {
