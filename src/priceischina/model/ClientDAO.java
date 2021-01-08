@@ -1,8 +1,5 @@
 package priceischina.model;
 
-import java.sql.SQLException;
-import java.util.ArrayList;
-
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
@@ -10,7 +7,7 @@ import priceischina.model.dto.ClientDTO;
 import priceischina.model.util.PublicCommon;
 
 public class ClientDAO {
-	public static String login(String id, String pw) {
+	public static String login(String id, String pw) {      
 		EntityManager em = PublicCommon.getEntityManager();
 		String result = "success";
 		String clientId = null;
