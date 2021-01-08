@@ -1,4 +1,4 @@
-package pricechina.model.dto;
+package priceischina.model.dto;
 
 import java.io.Serializable;
 

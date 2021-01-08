@@ -1,4 +1,4 @@
-﻿package pricechina.model.util;
+﻿package priceischina.model.util;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;

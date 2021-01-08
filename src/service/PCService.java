@@ -2,8 +2,8 @@ package service;
 
 import java.util.ArrayList;
 
-import pricechina.model.ProductDAO;
-import pricechina.model.dto.ProductDTO;
+import priceischina.model.ProductDAO;
+import priceischina.model.dto.ProductDTO;
 
 public class PCService {
 	

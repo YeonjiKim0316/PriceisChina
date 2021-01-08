@@ -1,12 +1,11 @@
-package pricechina.model;
-
+package priceischina.model;
 import java.util.ArrayList;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-import pricechina.model.dto.ProductDTO;
-import pricechina.model.util.PublicCommon;
+import priceischina.model.util.PublicCommon;
+import priceischina.model.dto.ProductDTO;
 
 public class ProductDAO {
 	
