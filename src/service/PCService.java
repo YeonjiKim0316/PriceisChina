@@ -3,7 +3,9 @@ package service;
 import java.util.ArrayList;
 
 import priceischina.model.ClientDAO;
+import priceischina.model.OrderedDAO;
 import priceischina.model.ProductDAO;
+import priceischina.model.dto.OrderedDTO;
 import priceischina.model.dto.ProductDTO;
 
 public class PCService {
@@ -41,9 +43,9 @@ public class PCService {
 	}
 	
 	//제품 추가
-	public static String join(int id, String name, int quantity, int price) {
+	public static String insertProduct(int id, String name, int quantity, int price) {
 		return ProductDAO.insertProduct(id, name, quantity, price); 
-	}	
+	}
 
 	//제품 삭체
 	public static boolean deleteProduct(int id) {
@@ -58,5 +60,21 @@ public class PCService {
 	//제품가격 수정
 	public static boolean updatePrice(int id, String newPrice) {
 		return ProductDAO.updateName(id, newPrice); 
+	}
+	//주문 list 반환
+	public static ArrayList<OrderedDTO> ordered() {
+		return OrderedDAO.orderedAll();
+	}
+	//주문 추가
+	public static String insertOrdered(int orderNo, String id, int productId, int orderedQuantity, String timestamp) {
+		return OrderedDAO.insertOredered(orderNo, id, productId, orderedQuantity, timestamp); 
+	}
+	//주문 수량 수정
+	public static boolean updateorderedQuantity(int orderNo, int neworderQuantity) {
+		return OrderedDAO.updateorderedQuantity(orderNo, neworderQuantity); 
+	}
+	//주문 삭제
+	public static boolean deleteOrdered(int orderNo) {
+		return OrderedDAO.deleteOrdered(orderNo); 
 	}
 }

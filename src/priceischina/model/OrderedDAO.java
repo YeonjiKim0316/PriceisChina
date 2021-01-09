@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
 
-import priceischina.model.dto.ClientDTO;
 import priceischina.model.dto.OrderedDTO;
 import priceischina.model.dto.ProductDTO;
 import priceischina.model.util.PublicCommon;
@@ -13,11 +12,11 @@ import priceischina.model.util.PublicCommon;
 public class OrderedDAO {
 	
 	//모든 ordered 반환
-	public static ArrayList<ProductDTO> orderedAll() {
+	public static ArrayList<OrderedDTO> orderedAll() {
 		EntityManager em = PublicCommon.getEntityManager();
-		ArrayList<ProductDTO> result = null;
+		ArrayList<OrderedDTO> result = null;
 		try {
-			result = (ArrayList<ProductDTO>) em.createNamedQuery("findorderedAll").getResultList();
+			result = (ArrayList<OrderedDTO>) em.createNamedQuery("findorderedAll").getResultList();
 		}catch(Exception e) {
 			e.printStackTrace();
 			throw e;
@@ -69,7 +68,7 @@ public class OrderedDAO {
 	}
 
 	// CRUD - DELETE
-	public static boolean delete(int orderNo) {
+	public static boolean deleteOrdered(int orderNo) {
 		EntityManager em = PublicCommon.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();

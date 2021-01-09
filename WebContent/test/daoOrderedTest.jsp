@@ -12,7 +12,7 @@
 	//System.out.println(dao.updateorderedQuantity(1, 6));
 	//System.out.println(dao.orderedAll());
 	//제품 삭제 및 확인
-	System.out.println(dao.delete(2));
+	//System.out.println(dao.deleteOrdered(2));
 	System.out.println(dao.orderedAll());
 	
 %>
