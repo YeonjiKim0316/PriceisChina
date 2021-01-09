@@ -34,5 +34,6 @@ alter table ordered add foreign key (productId) references product (productId);
 
 insert into client values ('testid', 'testpw', 'F', 30);
 insert into product values (1, 'testproduct', 10, 35000);
+insert into ordered values (1, 'testid', 1, 3, "yyyy-MM-dd HH:mm:ss");
 commit;
 
