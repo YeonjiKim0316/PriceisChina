@@ -16,7 +16,7 @@ create table product (
 	productId number(10) primary key,
 	productName varchar(20) not null,
 	quantity number(10) not null,
-	price number(30) not nul
+	price number(30) not null
 );
 
 

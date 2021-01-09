@@ -41,22 +41,22 @@ public class PCService {
 	}
 	
 	//제품 추가
-	public static String join(String id, String name, int price) {
-		return ProductDAO.insertProduct(id, name, price); 
+	public static String join(int id, String name, int quantity, int price) {
+		return ProductDAO.insertProduct(id, name, quantity, price); 
 	}	
 
 	//제품 삭체
-	public static boolean deleteProduct(String id) {
+	public static boolean deleteProduct(int id) {
 	return ProductDAO.delete(id); 
 	}
 
 	//제품명 수정
-	public static boolean updateName(String id, String newName) {
+	public static boolean updateName(int id, String newName) {
 	return ProductDAO.updateName(id, newName); 
 	}
 	
 	//제품가격 수정
-	public static boolean updatePrice(String id, String newPrice) {
+	public static boolean updatePrice(int id, String newPrice) {
 		return ProductDAO.updateName(id, newPrice); 
 	}
 }

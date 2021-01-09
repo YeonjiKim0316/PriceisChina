@@ -32,7 +32,7 @@ public class ProductDAO {
 		String result = "success";
 		ProductDTO product = null;
 		try {
-			product = ProductDTO.builder().productId(id).productName(pname).quantity(quantity).productPrice(price).build();
+			product = ProductDTO.builder().productId(id).productName(pname).quantity(quantity).price(price).build();
 			em.persist(product);
 			tx.commit();
 		} catch (Exception e) {
@@ -45,7 +45,7 @@ public class ProductDAO {
 	}
 
 	// CRUD - UPDATEName
-	public static boolean updateName(String id, String newName) {
+	public static boolean updateName(int id, String newName) {
 		EntityManager em = PublicCommon.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
@@ -66,7 +66,7 @@ public class ProductDAO {
 	}
 	
 	// CRUD - UPDATEPrice
-	public static boolean updatePrice(String id, int newPrice) {
+	public static boolean updatePrice(int id, int newPrice) {
 		EntityManager em = PublicCommon.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
@@ -87,15 +87,15 @@ public class ProductDAO {
 	}
 
 	// CRUD - DELETE
-	public static boolean delete(String id) {
+	public static boolean delete(int productId) {
 		EntityManager em = PublicCommon.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		String sql1 = "delete from ordered where productId=?";
 		String sql = "delete from product where productId=?";
 		try {
-			int result1 = em.createNativeQuery(sql1).setParameter(1, id).executeUpdate();
-			int result = em.createNativeQuery(sql).setParameter(1, id).executeUpdate();
+			int result1 = em.createNativeQuery(sql1).setParameter(1, productId).executeUpdate();
+			int result = em.createNativeQuery(sql).setParameter(1, productId).executeUpdate();
 			tx.commit();
 			if (result == 1) {
 				return true;
