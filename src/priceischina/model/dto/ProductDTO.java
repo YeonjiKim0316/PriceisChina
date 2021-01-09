@@ -18,18 +18,21 @@ import lombok.Setter;
 @Setter
 @Builder
 @NamedQuery(name = "findproductAll", query = "select p from Product p")
-@NamedQuery(name = "updateName", query = "update Product p set p.productName = :name where p.id = :id")
-@NamedQuery(name = "updatePrice", query = "update Product p set p.productPrice = :price where p.id = :id")
+@NamedQuery(name = "updateName", query = "update Product p set p.productName = :name where p.productId = :id")
+@NamedQuery(name = "updatePrice", query = "update Product p set p.productPrice = :price where p.productId = :id")
 @Entity(name = "Product")
 public class ProductDTO implements Serializable {
 	@Id
-	String id;
+	int productId;
 	String productName;
+	int quantity;
 	int productPrice;
-
+	
 	@Override
 	public String toString() {
-		return "ProductDTO [id=" + id + ", productName=" + productName + ", productPrice=" + productPrice + "]";
+		return "ProductDTO [productId=" + productId + ", productName=" + productName + ", quantity=" + quantity
+				+ ", productPrice=" + productPrice + "]";
+
 	}
 
 }

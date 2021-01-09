@@ -25,14 +25,14 @@ public class ProductDAO {
 	}
 	
 	// CRUD - JOIN - insert
-	public static String insertProduct(String id, String pname, int pprice) {
+	public static String insertProduct(int id, String pname,int quantity, int price) {
 		EntityManager em = PublicCommon.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		String result = "success";
 		ProductDTO product = null;
 		try {
-			product = ProductDTO.builder().id(id).productName(pname).productPrice(pprice).build();
+			product = ProductDTO.builder().productId(id).productName(pname).quantity(quantity).productPrice(price).build();
 			em.persist(product);
 			tx.commit();
 		} catch (Exception e) {
@@ -91,10 +91,10 @@ public class ProductDAO {
 		EntityManager em = PublicCommon.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
-//		String sql1 = "delete from leaderboard where id=?";
-		String sql = "delete from product where id=?";
+		String sql1 = "delete from ordered where productId=?";
+		String sql = "delete from product where productId=?";
 		try {
-//			int result1 = em.createNativeQuery(sql1).setParameter(1, id).executeUpdate();
+			int result1 = em.createNativeQuery(sql1).setParameter(1, id).executeUpdate();
 			int result = em.createNativeQuery(sql).setParameter(1, id).executeUpdate();
 			tx.commit();
 			if (result == 1) {
