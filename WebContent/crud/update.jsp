@@ -5,7 +5,7 @@
 
 <html>
 <head>
-<title>개인 정보 수정</title>
+<title>제품 수정</title>
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
 </head>
 <!-- Navigation (Stays on Top) -->
