@@ -74,10 +74,6 @@ public class PCcontroller extends HttpServlet {
 		}
 	}
 	
-	
-
-	
-	
 	//update Ordered
 	private void updateOrdered(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String url = "view/error.jsp";
@@ -96,12 +92,13 @@ public class PCcontroller extends HttpServlet {
 		String url = "view/error.jsp";
 		HttpSession session = req.getSession();
 		try {
-			PCService.insertOrdered((int)session.getAttribute("orderNo")
-									,(String)session.getAttribute("id")
-									,(int)session.getAttribute("productId")
-									,(int)session.getAttribute("orderedQuantity")
-									,(String)session.getAttribute("timestamp"));
-			
+			PCService.insertOrdered(Integer.parseInt((String)req.getParameter("orderNo"))
+									,(String)req.getParameter("id")
+									,Integer.parseInt((String)req.getParameter("productId"))
+									,Integer.parseInt((String)req.getParameter("orderedQuantity"))
+									,(String)req.getParameter("timestamp"));
+			session.setAttribute("orderedAll", PCService.ordered());
+			url = "crud/orderedManager.jsp";
 		}catch (Exception e) {
 			req.setAttribute("msg", "DB 조회 실패");
 		}

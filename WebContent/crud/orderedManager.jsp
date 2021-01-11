@@ -34,30 +34,34 @@
 	<br>
 		<br>
 		<!-- write Form  -->
-		<form action="controller?insertProduct" method="post">
+		<form action="controller?addOrdered" method="post">
 
-			<input type="hidden" name="command" value="insertProduct">
+			<input type="hidden" name="command" value="addOrdered">
 
 			<table border="1" cellspacing="1">
 				<tr>
-					<td align=center>제품 ID</td>
+					<td align=center>주문번호</td>
+					<td><input type="text" name="orderNo"></td>
+				</tr>
+				<tr>
+					<td align=center>고객아이디</td>
+					<td><input type="text" name="id"></td>
+				</tr>
+				<tr>
+					<td align=center>제품아이디</td>
 					<td><input type="text" name="productId"></td>
 				</tr>
 				<tr>
-					<td align=center>제품명</td>
-					<td><input type="text" name="productName"></td>
+					<td align=center>주문수량</td>
+					<td><input type="text" name="orderedQuantity"></td>
 				</tr>
 				<tr>
-					<td align=center>제품가격</td>
-					<td><input type="text" name="price"></td>
-				</tr>
-				<tr>
-					<td align=center>제품제고량</td>
-					<td><input type="text" name="quantity"></td>
+					<td align=center>주문시간</td>
+					<td><input type="text" name="timestamp"></td>
 				</tr>
 			</table>
 			<br>
-			<br> <input type="submit" value="제품추가">&nbsp; 
+			<br> <input type="submit" value="주문추가">&nbsp; 
 				<input type="reset" value="리셋">&nbsp;
 		</form>
 		
