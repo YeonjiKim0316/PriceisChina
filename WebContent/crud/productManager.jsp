@@ -65,11 +65,13 @@
 			<table border="1" cellspacing="1">
 				<tr>
 					<td>제품 아이디</td>
-					<td>${productId}</td>
+					<td><input type="text" name="productId" value="${productId}"></td>
+				</tr>
 				<tr>
 					<td>제품명 수정</td>
 					<td><input type="text" name="newName" value="${newName}">
 					</td>
+					</tr>
 			</table>
 			<p />
 

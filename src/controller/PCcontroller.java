@@ -121,8 +121,9 @@ public class PCcontroller extends HttpServlet {
 		String url = "view/error.jsp";
 		HttpSession session = req.getSession();
 		try{
-		PCService.updateName((int)session.getAttribute("productId"), (String)session.getAttribute("newName"));
-		url = "admin.html";
+		PCService.updateName(Integer.parseInt((String)req.getParameter("productId")), (String)req.getParameter("newName"));
+		session.setAttribute("productAll", PCService.product());
+		url = "crud/productManager.jsp";
 		}catch (Exception e) {
 			req.setAttribute("msg", "DB 조회 실패");
 		}
