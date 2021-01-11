@@ -108,6 +108,22 @@ public class PCcontroller extends HttpServlet {
 		}
 		req.getRequestDispatcher(url).forward(req, res);
 	}
+<<<<<<< Updated upstream
+=======
+
+	// update product
+	private void updateProduct(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		String url = "view/error.jsp";
+		HttpSession session = req.getSession();
+		try{
+		PCService.updateName((int)session.getAttribute("productId"), (String)session.getAttribute("newName"));
+		url = "admin.html";
+		}catch (Exception e) {
+			req.setAttribute("msg", "DB 조회 실패");
+		}
+		req.getRequestDispatcher(url).forward(req, res);
+	}
+>>>>>>> Stashed changes
 
 	// update product
 	private void updateProduct(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
