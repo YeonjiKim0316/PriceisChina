@@ -15,7 +15,7 @@
 			<img src="img/2.gif" width=200 align=left>
 			<a href="업데이트**" class="id"></i>${id}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 			<a href="login.html">logout</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-			<a href="myshopping.html">장바구니</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br>
+			<a href="myshopping.jsp">장바구니</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br>
 		</p>
 	</div>
 	
