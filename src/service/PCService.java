@@ -15,15 +15,12 @@ public class PCService {
 		return ClientDAO.login(id, pw);
 	}
 	
+	
 	//admin login
 	public static String adminlogin(String adminId, String adminPw) {
 		return ClientDAO.login(adminId, adminPw);
 	}
 	
-	//로그아웃시 세션 삭제
-	public static String logout(String id, String pw) {
-		return ClientDAO.login(id, pw); 
-	}
 		
 	//회원 가입
 	public static String join(String id, String pw, String gender, String ageString) {
@@ -82,4 +79,5 @@ public class PCService {
 	public static boolean deleteOrdered(int orderNo) {
 		return OrderedDAO.deleteOrdered(orderNo); 
 	}
+
 }
