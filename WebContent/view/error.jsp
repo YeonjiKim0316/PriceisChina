@@ -26,6 +26,6 @@ out.println(request.getAttribute("msg"));
 <p>
 <p>
 <p>
-<button onclick="location.href='products.jsp'">초기 화면으로 이동</button></center>
+<button onclick="location.href='products.jsp'">쇼핑하기</button></center>
 </body>
 </html>
