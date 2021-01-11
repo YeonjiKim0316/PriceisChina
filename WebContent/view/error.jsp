@@ -3,10 +3,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
+<meta charset="UTF-8">
 <title>에러 상황입니다</title>
 </head>
-<body bgcolor="lightgray" text="black">
+<body>
 &nbsp;
 <p>
 <p>
@@ -17,7 +17,6 @@
 <p>
 <p>
 <center>
-<img src="https://media4.giphy.com/media/YRbeBrFSapf8b77zYA/source.gif" width=300>
 <p>
 <%
 out.println(request.getAttribute("msg"));
@@ -27,6 +26,6 @@ out.println(request.getAttribute("msg"));
 <p>
 <p>
 <p>
-<button onclick="location.href='index.html'">초기 화면으로 이동</button></center>
+<button onclick="location.href='products.jsp'">초기 화면으로 이동</button></center>
 </body>
 </html>

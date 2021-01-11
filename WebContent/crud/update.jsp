@@ -9,15 +9,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
 </head>
 <!-- Navigation (Stays on Top) -->
-<div class="navi" style= font-color:gray>
-    <p style="text-align:right;"> <a href="controller?command=update" class="id"><i class="fa fa-gamepad" style="font-size:30px;color:grey;"></i>${id}</a> is gaming!  &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-<i class="fa fa-sign-out" style="font-size:30px;color:grey;"></i><a href="controller?command=logout" class="logout">logout</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br> </p>
-</div>
-<body bgcolor="lightgray" >
+	<div class="navi" style="font-color: gray">
+		<p style="text-align: right;">
+			<img src="img/2.gif" width=200 align=left> <a href="myPage.jsp">${id}</a>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="login.html" class="logout">logout</a>&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp; <a href="myshopping.jsp">장바구니</a>&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;<br>
+<body>
 <br>
 <center>   
-<img src="https://media0.giphy.com/media/kfj4cOQ4jk4D2kzz04/source.gif" width=200><br>
-<h3>개인 정보 수정하기</h3>
+<h3>비밀번호 변경</h3>
 <br>
 
 <form action="controller?command=updatesuccess" method="post">
@@ -38,7 +39,6 @@
 	<input type="submit" value="수정"> &nbsp;
 	<input type="button" value="탈퇴" Onclick="location.href='controller?command=delete'">&nbsp;
 	<input type="reset" value="취소">&nbsp;
-	<input type="button" value="게임화면으로" Onclick="location.href='controller?command=main'">
 </form>
 
 </body>

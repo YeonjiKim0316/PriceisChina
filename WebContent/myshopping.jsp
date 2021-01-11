@@ -9,8 +9,7 @@
 <body>
 	<div class="navi" style="font-color: gray">
 		<p style="text-align: right;">
-			<img src="img/2.gif" width=200 align=left> <a href="controller?update"
-				style="font-size: 30px; color: grey;">${id}</a>
+			<img src="img/2.gif" width=200 align=left> <a href="myPage.jsp">${id}</a>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="login.html" class="logout">logout</a>&nbsp;
 			&nbsp;&nbsp;&nbsp;&nbsp; <a href="myshopping.jsp">장바구니</a>&nbsp;
 			&nbsp;&nbsp;&nbsp;&nbsp;<br>

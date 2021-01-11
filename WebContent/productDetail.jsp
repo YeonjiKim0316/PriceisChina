@@ -16,8 +16,8 @@
 	<div class="navi" style="font-color: gray">
 		<p style="text-align: right;">
 			<img src="img/2.gif" width=200 align=left>
-			<a href="controller?update" class="id">${id}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-			<a href="login.html">logout</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
+			<a href="mypage.jsp" class="id"></i>${id}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			<a href="controller?logout">logout</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
 			<a href="myshopping.jsp">장바구니</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br>
 		</p>
 	</div><br><br><br><br>

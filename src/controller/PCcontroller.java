@@ -179,6 +179,10 @@ public class PCcontroller extends HttpServlet {
 		req.getRequestDispatcher("logout.jsp").forward(req, res);
 	}
 
+	// myPage
+//	private void mypage(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+//		req.getRequestDispatcher("myPage.jsp").forward(req, res);
+		
 	// update하기
 	private void update(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		req.getRequestDispatcher("crud/update.jsp").forward(req, res);
@@ -231,9 +235,6 @@ public class PCcontroller extends HttpServlet {
 			}
 		} catch (Exception e) {
 			req.setAttribute("msg", "가입 실패");
-			System.out.println(ageString);
-			System.out.println(gender);
-			System.out.println(id);
 		}
 		req.getRequestDispatcher(url).forward(req, res);
 	}
