@@ -25,14 +25,14 @@ public class ProductDAO {
 	}
 	
 	// CRUD - JOIN - insert
-	public static String insertProduct(int id, String pname, int quantity, int price) {
+	public static String insertProduct(int productId, String pname, int quantity, int price) {
 		EntityManager em = PublicCommon.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		String result = "success";
 		ProductDTO product = null;
 		try {
-			product = ProductDTO.builder().productId(id).productName(pname).quantity(quantity).price(price).build();
+			product = ProductDTO.builder().productId(productId).productName(pname).quantity(quantity).price(price).build();
 			em.persist(product);
 			tx.commit();
 		} catch (Exception e) {
@@ -45,13 +45,13 @@ public class ProductDAO {
 	}
 
 	// CRUD - UPDATEName
-	public static boolean updateName(int id, String newName) {
+	public static boolean updateName(int productId, String newName) {
 		EntityManager em = PublicCommon.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		boolean result = false;
 		try {
-			int res = em.createNamedQuery("updateName").setParameter("id", id).setParameter("name", newName).executeUpdate();
+			int res = em.createNamedQuery("updateName").setParameter("id", productId).setParameter("name", newName).executeUpdate();
 			tx.commit();
 			if (res == 1) {
 				result = true;
@@ -66,13 +66,13 @@ public class ProductDAO {
 	}
 	
 	// CRUD - UPDATEPrice
-	public static boolean updatePrice(int id, int newPrice) {
+	public static boolean updatePrice(int productId, int newPrice) {
 		EntityManager em = PublicCommon.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		boolean result = false;
 		try {
-			int res = em.createNamedQuery("updatePrice").setParameter("id", id).setParameter("price", newPrice).executeUpdate();
+			int res = em.createNamedQuery("updatePrice").setParameter("id", productId).setParameter("price", newPrice).executeUpdate();
 			tx.commit();
 			if (res == 1) {
 				result = true;
