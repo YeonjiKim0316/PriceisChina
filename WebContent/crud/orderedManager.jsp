@@ -65,25 +65,22 @@
 				<input type="reset" value="리셋">&nbsp;
 		</form>
 		
-		<form action="controller?command=updateProduct" method="post">
+		<form action="controller?command=updateOrdered" method="post">
 			<!-- update Form  -->
 			<table border="1" cellspacing="1">
 				<tr>
-					<td>제품 아이디</td>
-					<td><input type="text" name="productId" value="${productId}"></td>
+					<td>주문 번호</td>
+					<td><input type="text" name="orderNo" value="${orderNo}"></td>
 				</tr>
 				<tr>
-					<td>제품명 수정</td>
-					<td><input type="text" name="newName" value="${newName}">
+					<td>주문수량 수정</td>
+					<td><input type="text" name="neworderQuantity" value="${neworderQuantity}">
 					</td>
 					</tr>
 			</table>
 			<p />
 
-			<%-- hidden tag완성 하세요
-			 value값으로 설정해야 하는 값은? 
-	--%>
-			<input type="submit" value="제품수정"> &nbsp; 
+			<input type="submit" value="주문수정"> &nbsp; 
 			<input type="reset"	value="취소">&nbsp;
 		</form>
 </body>

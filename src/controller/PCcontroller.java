@@ -79,8 +79,10 @@ public class PCcontroller extends HttpServlet {
 		String url = "view/error.jsp";
 		HttpSession session = req.getSession();
 		try {
-			PCService.updateorderedQuantity((int)session.getAttribute("orderNo")
-					,(int)session.getAttribute("neworderQuantity"));
+			PCService.updateorderedQuantity(Integer.parseInt((String)req.getParameter("orderNo"))
+					,Integer.parseInt((String)req.getParameter("neworderQuantity")));
+			session.setAttribute("orderedAll", PCService.ordered());
+			url = "crud/orderedManager.jsp";
 		}catch (Exception e) {
 			req.setAttribute("msg", "DB 조회 실패");
 		}
