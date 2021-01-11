@@ -15,11 +15,9 @@
 	<center>
 		<h3>제품 list</h3>
 		<table border="1">
-	<thead>
 		<tr>
 			<th>제품ID</th><th>제품명</th><th>제품가격</th><th>제품제고량</th><th>삭제하기</th>
 		</tr>
-	</thead>
 	<c:forEach items="${sessionScope.productAll}" var="product">
 		<tr>
 			<td>${product.productId}</td>
@@ -79,8 +77,5 @@
 			<input type="submit" value="제품수정"> &nbsp; 
 			<input type="reset"	value="취소">&nbsp;
 		</form>
-		<script type="text/javascript">
-		console.log("product");
-		</script>
 </body>
 </html>

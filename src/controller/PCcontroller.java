@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -168,7 +169,7 @@ public class PCcontroller extends HttpServlet {
 		try {
 			List<ProductDTO> productAll = PCService.product();
 			session.setAttribute("productAll", productAll);
-			url = "productManager.jsp";
+			url = "crud/productManager.jsp";
 		} catch (Exception s) {
 			req.setAttribute("msg", "DB 조회 실패");
 			s.printStackTrace();
