@@ -4,51 +4,80 @@
 <html>
 <title>My Page</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  padding: 12px 16px;
+  z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+</style>
+</head>
 <body>
+<div id="bodyContents"></div>
 
-<div class="w3-container">
-	<div class="navi" style="font-color: gray">
-		<p style="text-align: right;">
-			<a href="products.jsp"><img src="img/2.gif" width=300 align=left></a> <a href="myPage.jsp">${id}</a>
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="controller?logout" class="logout">logout</a>&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp; <a href="myshopping.jsp">장바구니</a>&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;<br>
-		</p>
-	</div>
-<div id="gnb">
- <button class="gnb_switch" onclick="acyncMovePage('/crud/update.jsp')">비밀번호 변경</button>
-  <button class="gnb_switch" onclick="acyncMovePage('myshopping.jsp')">장바구니 확인</button>
-  <button class="gnb_switch" onclick="acyncMovePage('order.jsp')">주문내역 보기</button></div>
-  
-        <div id="bodyContents"></div>
-        
-        <input type="button" value="페이지 이동" onclick="acyncMovePage('myshopping.jsp')">
-    </body>
-</html>
+  <center>
+<div class="dropdown">
+  <button>My Page</button>
+  <div class="dropdown-content">
+	<div id="buttons">
+		<button onclick="acyncMovePage()">비밀번호 변경</button>
+  		<button onclick="acyncMovePage1()">장바구니 확인</button>
+  		<button onclick="acyncMovePage2()">주문내역 보기</button></div>
+</div></div></center>
+		<script type="text/javascript">
+ 
+	
+	function acyncMovePage() {
+		xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				document.getElementById("bodyContents").innerHTML = this.responseText;
+			}
+		};
+		xhr.open("POST", "${pageContext.request.contextPath}/crud/update.jsp", true);
+		xhr.send();
+		
+	}
+ 
+	function acyncMovePage1() {
+		xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				document.getElementById("bodyContents").innerHTML = this.responseText;
+			}
+		};
+		xhr.open("POST", "${pageContext.request.contextPath}/myshopping.jsp", true);
+		xhr.send();
+		
+	}
+	
 
-<script>
- 
-    function acyncMovePage('/crud/update.jsp'){
-        // ajax option
-        var ajaxOption = {
-                url : '/crud/update.jsp',
-                async : true,
-                type : "POST",
-                dataType : "jsp",
-                cache : false
-        };
-        
-        $.ajax(ajaxOption).done(function(data){
-            // Contents 영역 삭제
-            $('#bodyContents').children().remove();
-            // Contents 영역 교체
-            $('#bodyContents').html(data);
-        });
-    }
- 
+	function acyncMovePage2() {
+		xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = function(){
+			if(this.readyState == 4 && this.status == 200){
+				document.getElementById("bodyContents").innerHTML = this.responseText;
+			}
+		};
+		xhr.open("POST", "${pageContext.request.contextPath}/order.jsp", true);
+		xhr.send();
+		
+	}
 </script>
-
 
 </body>
 </html>
+

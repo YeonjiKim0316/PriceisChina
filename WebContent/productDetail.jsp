@@ -15,12 +15,15 @@
     </style>
 	<div class="navi" style="font-color: gray">
 	<p style="text-align: right;">
-		<a href="products.jsp"><img src="img/2.gif" width=300 align=left></a> <a href="myPage.jsp">${id}</a>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="controller?command=logout" class="logout">logout</a>&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp; <a href="myshopping.jsp">장바구니</a>&nbsp;
-		&nbsp;&nbsp;&nbsp;&nbsp;<br>
+	<div class="navi" style="font-color: gray">
+		<p style="text-align: right;">
+			<a href="products.jsp"><img src="img/2.gif" width=300 align=left></a> <c:if test="${not empty id}"> <a href="myPage.jsp">${id}</a></c:if> <c:if test="${empty id}"> <a href="crud/join.jsp">가입하기</a></c:if>
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:if test="${not empty id}"> <a href="controller?command=logout" class="logout">logout</a></c:if><c:if test="${empty id}"> <a href="login.html" class="login">login</a></c:if>&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp; <a href="myshopping.jsp">장바구니</a>&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;<br>
 		</p>
-	</div><br><br><br>
+	</div>
+<br><br><br>
 	<div class="div1" id = "div1">
 		<img class='img' src=img/product<%=request.getParameter("p") %>.png width=400>
 		<div class="div2">
@@ -43,7 +46,7 @@
 			<div align=right>
 				<button onclick="location.href='myshopping.jsp?p<%=request.getParameter("p") %>='+document.getElementById('prod').value">장바구니</button>
 				&emsp;&emsp;&emsp;
-				<button onclick="location.href='��ǰ����'">구매하기</button>
+				<button onclick="location.href='order.jsp'">구매하기</button>
 				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 			<button onclick="location.href='products.jsp'">상품 페이지</button>
 			</div>
