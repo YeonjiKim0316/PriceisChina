@@ -50,13 +50,13 @@ public class PCcontroller extends HttpServlet {
 				} else if (command.equals("deleteProduct")) {
 					deleteProduct(req, res);
 				} else if (command.equals("updateProduct")) {
-					//updateProduct(req, res);
+					updateProduct(req, res);
 				} else if (command.equals("addOrdered")) {
-					//updateProduct(req, res);
+					updateProduct(req, res);
 				} else if (command.equals("updateOrdered")) {
-					//updateOrdered(req, res);
+					updateOrdered(req, res);
 				} else if (command.equals("deleteOrdered")) {
-					//deleteOrdered(req, res);
+					deleteOrdered(req, res);
 				} else {
 					req.setAttribute("msg", "유효하지 않은 command입니다.");
 					req.getRequestDispatcher("view/error.jsp").forward(req, res);
@@ -68,7 +68,62 @@ public class PCcontroller extends HttpServlet {
 			req.getRequestDispatcher("view/error.jsp").forward(req, res);
 		}
 	}
+	
+	//delete ordered
+	private void deleteOrdered(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		String url = "view/error.jsp";
+		HttpSession session = req.getSession();
+		try {
+			PCService.deleteOrdered((int)session.getAttribute("orderNo"));
+	}catch (Exception e) {
+		req.setAttribute("msg", "DB 조회 실패");
+	}
+		req.getRequestDispatcher(url).forward(req, res);
+	}
+	
+	//add ordered
+	private void addOrdered(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		String url = "view/error.jsp";
+		HttpSession session = req.getSession();
+		try {
+			PCService.insertOrdered((int)session.getAttribute("orderNo")
+									,(String)session.getAttribute("id")
+									,(int)session.getAttribute("productId")
+									,(int)session.getAttribute("orderedQuantity")
+									,(String)session.getAttribute("timestamp"));
+		}catch (Exception e) {
+			req.setAttribute("msg", "DB 조회 실패");
+		}
+		req.getRequestDispatcher(url).forward(req, res);
 
+	}
+	
+	//update Ordered
+	private void updateOrdered(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		String url = "view/error.jsp";
+		HttpSession session = req.getSession();
+		try {
+			PCService.updateorderedQuantity((int)session.getAttribute("orderNo")
+											,(int)session.getAttribute("neworderQuantity"));
+		}catch (Exception e) {
+			req.setAttribute("msg", "DB 조회 실패");
+		}
+		req.getRequestDispatcher(url).forward(req, res);
+	}
+
+	// update product
+	private void updateProduct(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		String url = "view/error.jsp";
+		HttpSession session = req.getSession();
+		try{
+		PCService.updateName((int)session.getAttribute("productId"), (String)session.getAttribute("newName"));
+		url = "admin.html";
+		}catch (Exception e) {
+			req.setAttribute("msg", "DB 조회 실패");
+		}
+		req.getRequestDispatcher(url).forward(req, res);
+	}
+	
 	// delete product
 	private void deleteProduct(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String url = "view/error.jsp";
