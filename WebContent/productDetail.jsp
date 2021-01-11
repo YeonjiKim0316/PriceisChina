@@ -14,13 +14,13 @@
 	.div2 { float: left; } 
     </style>
 	<div class="navi" style="font-color: gray">
-		<p style="text-align: right;">
-			<img src="img/2.gif" width=200 align=left>
-			<a href="myPage.jsp" class="id"></i>${id}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
-			<a href="controller?logout">logout</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-			<a href="myshopping.jsp">장바구니</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br>
+	<p style="text-align: right;">
+		<a href="products.jsp"><img src="img/2.gif" width=300 align=left></a> <a href="myPage.jsp">${id}</a>
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="login.html" class="logout">logout</a>&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp; <a href="myshopping.jsp">장바구니</a>&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;<br>
 		</p>
-	</div><br><br><br><br>
+	</div><br><br><br>
 	<div class="div1" id = "div1">
 		<img class='img' src=img/product<%=request.getParameter("p") %>.png width=400>
 		<div class="div2">

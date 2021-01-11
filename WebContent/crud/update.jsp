@@ -8,14 +8,16 @@
 <title>제품 수정</title>
 <meta http-equiv="Content-Type" content="text/html; charset=euc-kr">
 </head>
+<body>
 <!-- Navigation (Stays on Top) -->
 	<div class="navi" style="font-color: gray">
 		<p style="text-align: right;">
-			<img src="img/2.gif" width=200 align=left> <a href="myPage.jsp">${id}</a>
+			<a href="../products.jsp"><img src="../img/2.gif" width=300 align=left></a> <a href="myPage.jsp">${id}</a>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="login.html" class="logout">logout</a>&nbsp;
 			&nbsp;&nbsp;&nbsp;&nbsp; <a href="myshopping.jsp">장바구니</a>&nbsp;
 			&nbsp;&nbsp;&nbsp;&nbsp;<br>
-<body>
+		</p>
+	</div>
 <br>
 <center>   
 <h3>비밀번호 변경</h3>

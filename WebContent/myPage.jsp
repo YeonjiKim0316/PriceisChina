@@ -1,48 +1,49 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="EUC-KR"%>
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-<title>W3.CSS</title>
+<title>My Page</title>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <body>
+
 <div class="w3-container">
-	<p style="text-align: right;">
-			<img src="img/2.gif" width=200 align=left> <a href="myPage.jsp">${id}</a>
+	<div class="navi" style="font-color: gray">
+		<p style="text-align: right;">
+			<a href="products.jsp"><img src="img/2.gif" width=300 align=left></a> <a href="myPage.jsp">${id}</a>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="login.html" class="logout">logout</a>&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp; <a href="myshopping.jsp">Àå¹Ù±¸´Ï</a>&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp; <a href="myshopping.jsp">ì¥ë°”êµ¬ë‹ˆ</a>&nbsp;
 			&nbsp;&nbsp;&nbsp;&nbsp;<br>
-</div>
+		</p>
+	</div>
 
 <div class="w3-bar w3-black">
-  <button class="w3-bar-item w3-button" onclick="open('update')">ºñ¹Ğ¹øÈ£ º¯°æ</button>
-  <button class="w3-bar-item w3-button" onclick="open('myshopping')">Àå¹Ù±¸´Ï</button>
-  <button class="w3-bar-item w3-button" onclick="open('order')">ÁÖ¹® »óÈ²</button>
+  <button class="w3-bar-item w3-button" onclick="openCity('London')">ë¹„ë°€ë²ˆí˜¸ ë³€ê²½</button>
+  <button class="w3-bar-item w3-button" onclick="openCity('Paris')">ì¥ë°”êµ¬ë‹ˆ í™•ì¸</button>
+  <button class="w3-bar-item w3-button" onclick="openCity('Tokyo')">ì£¼ë¬¸ë‚´ì—­ ë³´ê¸°</button>
 </div>
 
-<div id="update" class="w3-container jsp">
-  <h2>ºñ¹Ğ¹øÈ£ º¯°æ</h2>
+<div id="London" class="w3-container city">
 <jsp:forward page="crud/update.jsp">
 		<jsp:param value="id" name="msg"/>
 	</jsp:forward>
-</div>
-
-<div id="myshopping" class="w3-container jsp" style="display:none">
-<jsp:forward page="myshopping.jsp">
-		<jsp:param value="id" name="msg"/>
-	</jsp:forward>
-</div>
-
-<div id="order" class="w3-container jsp" style="display:none">
+    </div>
+    
+<div id="Paris" class="w3-container city" style="display:none">
 <jsp:forward page="order.jsp">
 		<jsp:param value="id" name="msg"/>
 	</jsp:forward>
 </div>
 
+<div id="Tokyo" class="w3-container city" style="display:none">
+  <h2>Tokyo</h2>
+  <p>Tokyo is the capital of Japan.</p>
+</div>
+
 <script>
-function open('orderName') {
+function openCity(cityName) {
   var i;
-  var x = document.getElementsByClassName("jsp");
+  var x = document.getElementsByClassName("city");
   for (i = 0; i < x.length; i++) {
     x[i].style.display = "none";  
   }
