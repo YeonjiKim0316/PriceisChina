@@ -1,31 +1,32 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-<%@ page import="priceischina.model.dto.ProductDTO"%>
+<%@ page import="priceischina.model.dto.OrderedDTO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>ProductManger</title>
+<title>OrderedManger</title>
 </head>
 
 <body>
 	
 	<center>
-		<h3>제품 list</h3>
+		<h3>주문 내역 list</h3>
 		<table border="1">
 		<tr>
-			<th>제품ID</th><th>제품명</th><th>제품가격</th><th>제품제고량</th><th>삭제하기</th>
+			<th>주문번호</th><th>고객아이디</th><th>제품아이디</th><th>주문수량</th><th>주문시간</th><th>삭제하기</th>
 		</tr>
-	<c:forEach items="${sessionScope.productAll}" var="productAll">
+	<c:forEach items="${sessionScope.orderedAll}" var="orderedAll">
 		<tr>
-			<td>${productAll.productId}</td>
-			<td>${productAll.productName}</td>
-			<td>${productAll.quantity}</td>
-			<td>${productAll.price}</td>
+			<td>${orderedAll.orderNo}</td>
+			<td>${orderedAll.id}</td>
+			<td>${orderedAll.productId}</td>
+			<td>${orderedAll.orderedQuantity}</td>
+			<td>${orderedAll.timestamp}</td>
 			<td>
-			<button Onclick="location.href='controller?command=deleteProduct&productId=${productAll.productId}'">삭제</button>
+			<button Onclick="location.href='controller?command=deleteOrdered&orderNo=${orderedAll.orderNo}'">삭제</button>
 			</td>
 		</tr>
 	</c:forEach>

@@ -80,12 +80,19 @@ public class PCcontroller extends HttpServlet {
 	private void deleteOrdered(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String url = "view/error.jsp";
 		HttpSession session = req.getSession();
+		int orderedId = Integer.parseInt((String)req.getParameter("orderedId"));
+		if(orderedId != 0) {
 		try {
-			PCService.deleteOrdered((int)session.getAttribute("orderNo"));
-	}catch (Exception e) {
-		req.setAttribute("msg", "DB 조회 실패");
+		PCService.deleteOrdered(orderedId);
+		session.setAttribute("orderedAll", PCService.ordered());
+		url = "crud/orderedManager.jsp";
+		}
+		catch (Exception e) {
+			req.setAttribute("msg", "주문 삭제 실패");
+			e.printStackTrace();	
 	}
 		req.getRequestDispatcher(url).forward(req, res);
+	}
 	}
 	
 	//update Ordered
@@ -126,7 +133,7 @@ public class PCcontroller extends HttpServlet {
 			try {
 				List<OrderedDTO> orderedAll = PCService.ordered();
 				session.setAttribute("orderedAll", orderedAll);
-				url = "crud/orderManager.jsp";
+				url = "crud/orderedManager.jsp";
 			} catch (Exception s) {
 				req.setAttribute("msg", "DB 조회 실패");
 				s.printStackTrace();
