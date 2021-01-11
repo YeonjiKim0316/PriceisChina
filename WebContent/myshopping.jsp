@@ -20,16 +20,21 @@
 <br><br><br><br>
 <table border = 1 align=center>
 <tr><th>체크</th><th>사진</th><th>단가</th><th>수량</th><th>총 가격</th></tr>
-<tr><td>
-	<input type="checkbox" id="prod1" name="prod1" value="prod1">
-	<label for="prod1"></label></td>
-	<td><img src="img/product1.png" width=100></td><td>가격1</td><td>수량1</td><td>총 가격</td>
-<tr><td>
-	<input type="checkbox" id="prod2" name="prod2" value="prod2">
-	<label for="prod2"></label></td><td><img src="img/product2.png" width=100></td><td>가격2</td><td>수량2</td><td>총 가격2</td>
+	<%if(request.getParameter("p1")!=null){%>
+		<tr><td>
+		<input type='checkbox' id='prod1' name='prod1' value='prod1'>
+		<label for='prod1'></label></td>
+		<td><img src='img/product1.png' width=100></td><td>15000</td><td><%=request.getParameter("p1") %></td><td><%=15000*Integer.parseInt(request.getParameter("p1")) %></td></tr>
+		<%}%>
+	<%if(request.getParameter("p2")!=null){%>
+		<tr><td>
+		<input type="checkbox" id="prod2" name="prod2" value="prod2">
+		<label for="prod2"></label></td>
+		<td><img src="img/product2.png" width=100></td><td>20000</td><td><%=request.getParameter("p2") %></td><td><%=20000*Integer.parseInt(request.getParameter("p2")) %></td></tr>
+		<%}%>
 </table>
 <br><br><br><br><br>
-<p align=right>총계 : ${total}<br><br><button>구매하기</button></p>
+<p align=right>총계 : <br><br><button>구매하기</button></p>
 
 </body>
 </html>

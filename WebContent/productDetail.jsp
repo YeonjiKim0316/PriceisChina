@@ -41,7 +41,7 @@
 			<br><br><br>
 			
 			<div align=right>
-				<button onclick="location.href='myshopping.jsp?p=<%=request.getParameter("p") %>&val='+document.getElementById('prod').value">장바구니</button>
+				<button onclick="location.href='myshopping.jsp?p<%=request.getParameter("p") %>='+document.getElementById('prod').value">장바구니</button>
 				&emsp;&emsp;&emsp;
 				<button onclick="location.href='��ǰ����'">구매하기</button>
 				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;

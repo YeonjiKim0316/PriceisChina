@@ -35,7 +35,7 @@
 					<option value="7">7</option>
 					<option value="8">8</option>
 				</select><br>
-				<button onclick="location.href='myshopping.jsp?p=1&val='+document.getElementById('prod1').value">장바구니</button></div>
+				<button onclick="location.href='myshopping.jsp?p1='+document.getElementById('prod1').value">장바구니</button></div>
 		<div class="img-with-text"><img src="img/product2.png" width=300 height=300 onclick="location.href='productDetail.jsp?p=2'"><p>
 		거품비누 디스펜서<br>20000원</p>
 		수량선택
@@ -49,7 +49,7 @@
 					<option value="7">7</option>
 					<option value="8">8</option>
 				</select><br>
-				<button onclick="location.href='myshopping.jsp?p=2&val='+document.getElementById('prod2').value">장바구니</button></div>
+				<button onclick="location.href='myshopping.jsp?p2='+document.getElementById('prod2').value">장바구니</button></div>
 		</div>
 	</body>
 	</html>
