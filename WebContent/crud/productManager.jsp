@@ -1,17 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="priceischina.model.dto.ProductDTO"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>제품추가</title>
+<title>ProductManger</title>
 </head>
 
 <body>
 	
 	<center>
-		<h3>제품 추가</h3>
+		<h3>제품 list</h3>
 		<table border="1">
 	<thead>
 		<tr>
