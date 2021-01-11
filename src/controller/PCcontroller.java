@@ -39,7 +39,7 @@ public class PCcontroller extends HttpServlet {
 					updatesuccess(req, res);
 				} else if (command.equals("logout")) {
 					logout(req, res);
-				} else if (command.equals("deleteID")) {
+				} else if (command.equals("delete")) {
 					delete(req, res);
 				} else if (command.equals("admin")) {
 					admin(req, res);
