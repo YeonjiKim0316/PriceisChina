@@ -41,7 +41,7 @@ public class PCcontroller extends HttpServlet {
 					} else if(command.equals("logout")) { 
 						logout(req, res);
 					} else if(command.equals("deleteID")) { 
-						//deleteID(req, res);
+						delete(req, res);
 					} else {
 						req.setAttribute("msg", "유효하지 않은 command입니다.");
 						req.getRequestDispatcher("view/error.jsp").forward(req, res);
@@ -93,12 +93,16 @@ public class PCcontroller extends HttpServlet {
 		public void join(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 			String id = req.getParameter("id");
 			String pw = req.getParameter("pw");
+			String gender = req.getParameter("gender");
+			String age = req.getParameter("age");
 			String url = "view/error.jsp";
 			HttpSession session = req.getSession();
 			try {String joinresult = PCService.join(id, pw);
 				if(joinresult.equals("success")) {
 					session.setAttribute("id", id);
 					session.setAttribute("pw", pw);
+					session.setAttribute("gender", gender);
+					session.setAttribute("age", age);
 					url = "crud/view.jsp";
 					log.info("회원 가입: "+ session.getAttribute("id"));
 				} else if(joinresult.equals("fail")) {

@@ -27,14 +27,14 @@ public class ClientDAO {
 	}
 
 	// CRUD - JOIN - insert
-	public static String insert(String id, String pw) {
+	public static String insert(String id, String pw, String gender, int age) {
 		EntityManager em = PublicCommon.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
 		String result = "success";
 		ClientDTO client = null;
 		try {
-			client = ClientDTO.builder().id(id).pw(pw).build();
+			client = ClientDTO.builder().id(id).pw(pw).gender(gender).age(age).build();
 			em.persist(client);
 			tx.commit();
 		} catch (Exception e) {
