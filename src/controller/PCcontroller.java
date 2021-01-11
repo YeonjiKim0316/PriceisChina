@@ -76,24 +76,7 @@ public class PCcontroller extends HttpServlet {
 	
 	
 
-	//delete ordered
-	private void deleteOrdered(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		String url = "view/error.jsp";
-		HttpSession session = req.getSession();
-		int orderedId = Integer.parseInt((String)req.getParameter("orderedId"));
-		if(orderedId != 0) {
-		try {
-		PCService.deleteOrdered(orderedId);
-		session.setAttribute("orderedAll", PCService.ordered());
-		url = "crud/orderedManager.jsp";
-		}
-		catch (Exception e) {
-			req.setAttribute("msg", "주문 삭제 실패");
-			e.printStackTrace();	
-	}
-		req.getRequestDispatcher(url).forward(req, res);
-	}
-	}
+	
 	
 	//update Ordered
 	private void updateOrdered(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -126,7 +109,26 @@ public class PCcontroller extends HttpServlet {
 
 	}
 	
-// ordered Manager
+		//delete ordered
+		private void deleteOrdered(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+			String url = "view/error.jsp";
+			HttpSession session = req.getSession();
+			int orderNo = Integer.parseInt((String)req.getParameter("orderNo"));
+			if(orderNo != 0) {
+			try {
+			PCService.deleteOrdered(orderNo);
+			session.setAttribute("orderedAll", PCService.ordered());
+			url = "crud/orderedManager.jsp";
+			}
+			catch (Exception e) {
+				req.setAttribute("msg", "주문 삭제 실패");
+				e.printStackTrace();	
+		}
+			req.getRequestDispatcher(url).forward(req, res);
+		}
+		}
+	
+		// ordered Manager
 		private void orderedManager(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 			String url = "view/error.jsp";
 			HttpSession session = req.getSession();
