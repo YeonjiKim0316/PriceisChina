@@ -15,7 +15,7 @@ ${id}님의 계정이 삭제되었습니다.
 		${id} ${pw} ${result}
 	
 <p><p>
- <input type="button" value="초기화면으로 이동" Onclick="location.href='myshopping.jsp'"> 
+ <input type="button" value="초기화면으로 이동" onClick='self.close()'"> 
 </center>
 </body>
 <script>setTimeout ('window.close ()', 1500)</script>
