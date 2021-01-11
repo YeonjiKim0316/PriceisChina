@@ -24,7 +24,7 @@
 			<td>${product.productName}</td>
 			<td>${product.quantity}</td>
 			<td>${product.price}</td>
-			<td><input type="text" value="제품삭제" Onclick="location.href='controller?command=deleteProduct'"></td>
+			<td><input type="text" value="제품삭제" Onclick="location.href='controller?command=deleteProduct&productId=${product.productId}'"></td>
 		</tr>
 	</c:forEach>
 	</table>

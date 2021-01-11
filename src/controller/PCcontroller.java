@@ -130,10 +130,11 @@ public class PCcontroller extends HttpServlet {
 		String url = "view/error.jsp";
 		HttpSession session = req.getSession();
 		try {
-		PCService.deleteProduct((int)session.getAttribute("productId"));
-		url = "admin.html";
+		PCService.deleteProduct(Integer.parseInt((String)session.getAttribute("productId")));
+		url = "crud/productManager.jsp";
 		}catch (Exception e) {
-			req.setAttribute("msg", "DB 조회 실패");
+			req.setAttribute("msg", "제품 삭제 실패");
+			e.printStackTrace();
 	}
 		req.getRequestDispatcher(url).forward(req, res);
 	}
