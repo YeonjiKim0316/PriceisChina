@@ -21,8 +21,8 @@
 			<a href="myshopping.html">장바구니</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br>
 		</p>
 	</div>
-	<div class="div1">
-		<img class="img" src=img/product1.png>
+	<div class="div1" id = "div1">
+		<img class='img' src=img/product<%=request.getParameter("p") %>.png>
 		<div class="div2">
 			<br><br><br><br><br><br><br><br><br>
 			구매 정보<br><br><br>
@@ -48,7 +48,5 @@
 			</div>
 		</div>
 	</div>
-	
-	
 </body>
 </html>

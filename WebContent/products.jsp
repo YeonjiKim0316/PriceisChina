@@ -22,8 +22,10 @@
 	<br><br><br>&emsp;&emsp;&emsp;
 	
 	<div class="container" align=center>
-		<div class="img-with-text"><img src="img/product1.png" width=300 height=300 onclick="location.href='productDetail.jsp'"><p> 상품1<br>가격1<br>설명1 </p></div>
-		<div class="img-with-text"><img src="img/product2.png" width=300 height=300 onclick="location.href='productDetail.jsp'"><p> 상품2<br>가격2<br>설명2 </p></div>
+		<div class="img-with-text"><img src="img/product1.png" width=300 height=300 onclick="location.href='productDetail.jsp?p=1'"><p> 
+		블루투스 이어폰<br>15000원</p></div>
+		<div class="img-with-text"><img src="img/product2.png" width=300 height=300 onclick="location.href='productDetail.jsp?p=2'"><p>
+		거품비누 디스펜서<br>20000원</p></div>
 		</div>
 	</body>
 	</html>
