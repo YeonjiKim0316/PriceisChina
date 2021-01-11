@@ -97,7 +97,7 @@ public class PCcontroller extends HttpServlet {
 			String age = req.getParameter("age");
 			String url = "view/error.jsp";
 			HttpSession session = req.getSession();
-			try {String joinresult = PCService.join(id, pw);
+			try {String joinresult = PCService.join(id, pw, gender, age);
 				if(joinresult.equals("success")) {
 					session.setAttribute("id", id);
 					session.setAttribute("pw", pw);
