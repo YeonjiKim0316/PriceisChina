@@ -22,7 +22,7 @@
 		</p>
 	</div>
 	<div class="div1">
-		<img class="img" src=img/1.png>
+		<img class="img" src=img/product1.png>
 		<div class="div2">
 			<br><br><br><br><br><br><br><br><br>
 			구매 정보<br><br><br>
