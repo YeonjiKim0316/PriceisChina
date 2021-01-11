@@ -20,16 +20,13 @@
 			<th>제품ID</th><th>제품명</th><th>제품가격</th><th>제품제고량</th><th>삭제하기</th>
 		</tr>
 	</thead>
-	<c:forEach items="${requestScope.productAll}" var="product">
+	<c:forEach items="${sessionScope.productAll}" var="product">
 		<tr>
-			<th><a href="Controller?command=productManage&productId=${product.productId}&productName=${product.productName}
-				&price=${product.price}&quantity=${product.quantity}">
-				${product.productId}</a>
-			</th>
-			<th>${product.productName}</th>
-			<th>${product.price}</th>
-			<th>${product.quantity}</th>
-			<th><a href="Controller?command=productDelete&product=${product.productId}">삭제하기</a></th>
+			<td>${product.productId}</td>
+			<td>${product.productName}</td>
+			<td>${product.quantity}</td>
+			<td>${product.price}</td>
+			<td><input type="text" value="제품삭제" Onclick="location.href='controller?command=deleteProduct'"></td>
 		</tr>
 	</c:forEach>
 	</table>
@@ -82,5 +79,8 @@
 			<input type="submit" value="제품수정"> &nbsp; 
 			<input type="reset"	value="취소">&nbsp;
 		</form>
+		<script type="text/javascript">
+		console.log("product");
+		</script>
 </body>
 </html>
