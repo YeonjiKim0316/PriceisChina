@@ -58,7 +58,7 @@
 			</tr>
 	  </table>
 	 <br><br>
-	 <input type="submit" value="가입" onclick="location.href='products.html'">&nbsp;
+	 <input type="submit" value="가입" onclick="location.href='products.jsp'">&nbsp;
 	 <input type="reset" value="리셋">&nbsp;</form>
 	 </form>	 
 
