@@ -10,7 +10,7 @@
 	<style type="text/css">
     .img-with-text { float: left; margin-left: 10em; text-align: left}
     .div1 {overflow:auto;}
-	.img { float: left;  }
+	.img { float: left; margin-left:10em  }
 	.div2 { float: left; } 
     </style>
 	<div class="navi" style="font-color: gray">
@@ -20,15 +20,14 @@
 			<a href="login.html">logout</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
 			<a href="myshopping.html">장바구니</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br>
 		</p>
-	</div>
+	</div><br><br><br><br>
 	<div class="div1" id = "div1">
-		<img class='img' src=img/product<%=request.getParameter("p") %>.png>
-		<div class="div2">
-			<br><br><br><br><br><br><br><br><br>
-			구매 정보<br><br><br>
-			상품명<br><br><br>
-			가격<br><br><br>
-			수량선택
+		<img class='img' src=img/product<%=request.getParameter("p") %>.png width=400>
+		<div class="div2"><br><br><br>
+			&emsp;&emsp;구매 정보<br><br><br>
+			&emsp;&emsp;상품명<br><br><br>
+			&emsp;&emsp;가격<br><br><br>
+			&emsp;&emsp;수량선택
 			<select name="수량">
 					<option value="1">1</option>
 					<option value="2">2</option>
@@ -40,6 +39,7 @@
 					<option value="8">8</option>
 				</select>
 			<br><br><br>
+			
 			<div align=right>
 				<button onclick="location.href='myshopping.jsp'">장바구니</button>
 				&emsp;&emsp;&emsp;
@@ -48,5 +48,21 @@
 			</div>
 		</div>
 	</div>
+	
+	
+	<script type="text/javascript">
+	google.charts.load('current', {'packages' : [ 'corechart' ]});
+
+	function prodView() {
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				
+			}
+		}
+		xhttp.open("GET", "dataRes.json", true);
+		xhttp.send();
+	}
+</script>
 </body>
 </html>
