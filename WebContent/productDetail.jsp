@@ -1,8 +1,10 @@
-<!DOCTYPE html>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>Insert title here</title>
+<meta charset="UTF-8">
+<title>ìƒí’ˆ ìƒì„¸ ì •ë³´</title>
 </head>
 <body>
 	<style type="text/css">
@@ -14,20 +16,20 @@
 	<div class="navi" style="font-color: gray">
 		<p style="text-align: right;">
 			<img src="img/2.gif" width=200 align=left>
-			<a href="¾÷µ¥ÀÌÆ®**" class="id"><i class="fa fa-gamepad" style="font-size: 30px; color: grey;"></i>${id}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
+			<a href="controller?update" class="id">${id}</a> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp; 
 			<a href="login.html">logout</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;
-			<a href="myshopping.html">Àå¹Ù±¸´Ï</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br>
+			<a href="myshopping.html">ì¥ë°”êµ¬ë‹ˆ</a>&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;<br>
 		</p>
 	</div>
 	<div class="div1">
 		<img class="img" src=img/1.png>
 		<div class="div2">
 			<br><br><br><br><br><br><br><br><br>
-			±¸¸Å Á¤º¸<br><br><br>
-			»óÇ°¸í<br><br><br>
-			°¡°İ<br><br><br>
-			¼ö·® ¼±ÅÃ
-			<select name="¼ö·®">
+			êµ¬ë§¤ ì •ë³´<br><br><br>
+			ìƒí’ˆëª…<br><br><br>
+			ê°€ê²©<br><br><br>
+			ìˆ˜ëŸ‰ì„ íƒ
+			<select name="ìˆ˜ëŸ‰">
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -39,9 +41,9 @@
 				</select>
 			<br><br><br>
 			<div align=right>
-				<button onclick="location.href='myshopping.html'">Àå¹Ù±¸´Ï</button>
+				<button onclick="location.href='myshopping.jsp'">ì¥ë°”êµ¬ë‹ˆ</button>
 				&emsp;&emsp;&emsp;
-				<button onclick="location.href='Á¦Ç°±¸¸Å'">±¸¸ÅÇÏ±â</button>
+				<button onclick="location.href='ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½'">êµ¬ë§¤í•˜ê¸°</button>
 				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 			</div>
 		</div>

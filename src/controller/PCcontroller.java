@@ -75,7 +75,7 @@ public class PCcontroller extends HttpServlet {
 			if(loginresult.equals("success")) {
 				session.setAttribute("id", id);
 				session.setAttribute("pw", pw);
-				url = "products.html";
+				url = "products.jsp";
 				log.info( id +" 로그인 성공");
 			} else if(loginresult.equals("id")) {
 				req.setAttribute("msg", "ID를 다시 확인해주세요");
