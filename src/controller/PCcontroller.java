@@ -129,14 +129,19 @@ public class PCcontroller extends HttpServlet {
 	private void deleteProduct(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String url = "view/error.jsp";
 		HttpSession session = req.getSession();
+		int productId = Integer.parseInt((String)session.getAttribute("productId"));
+		if(productId != 0) {
 		try {
-		PCService.deleteProduct(Integer.parseInt((String)session.getAttribute("productId")));
+		PCService.deleteProduct(productId);
 		url = "crud/productManager.jsp";
-		}catch (Exception e) {
+		log.info("제품 삭제 : "+ session.getAttribute("productId"));
+		}
+		catch (Exception e) {
 			req.setAttribute("msg", "제품 삭제 실패");
-			e.printStackTrace();
+			e.printStackTrace();	
 	}
 		req.getRequestDispatcher(url).forward(req, res);
+	}
 	}
 
 	// admin login
