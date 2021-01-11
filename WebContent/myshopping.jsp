@@ -24,10 +24,10 @@
 <tr><td>
 	<input type="checkbox" id="prod1" name="prod1" value="prod1">
 	<label for="prod1"></label></td>
-	<td><img src="img/1.png" width=100></td><td>가격1</td><td>수량1</td><td>총 가격</td>
+	<td><img src="img/product1.png" width=100></td><td>가격1</td><td>수량1</td><td>총 가격</td>
 <tr><td>
 	<input type="checkbox" id="prod2" name="prod2" value="prod2">
-	<label for="prod2"></label></td><td><img src="img/2.png" width=100></td><td>가격2</td><td>수량2</td><td>총 가격2</td>
+	<label for="prod2"></label></td><td><img src="img/product2.png" width=100></td><td>가격2</td><td>수량2</td><td>총 가격2</td>
 </table>
 <br><br><br><br><br>
 <p align=right>총계 : ${total}<br><br><button>구매하기</button></p>
