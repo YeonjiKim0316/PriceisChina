@@ -1,6 +1,7 @@
 package controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -10,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import lombok.extern.slf4j.Slf4j;
+import priceischina.model.dto.ProductDTO;
 import service.PCService;
 
 @WebServlet("/controller")
@@ -164,12 +166,8 @@ public class PCcontroller extends HttpServlet {
 		String url = "view/error.jsp";
 		HttpSession session = req.getSession();
 		try {
-			req.setAttribute("productId", session.getAttribute("productId"));
-			req.setAttribute("productName", session.getAttribute("productName"));
-			req.setAttribute("quantity", session.getAttribute("quantity"));
-			req.setAttribute("price", session.getAttribute("price"));
-			
-			req.setAttribute("productAll", PCService.product());
+			List<ProductDTO> productAll = PCService.product();
+			session.setAttribute("productAll", productAll);
 			url = "productManager.jsp";
 		} catch (Exception s) {
 			req.setAttribute("msg", "DB 조회 실패");
