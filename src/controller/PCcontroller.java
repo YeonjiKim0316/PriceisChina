@@ -94,22 +94,25 @@ public class PCcontroller extends HttpServlet {
 			String id = req.getParameter("id");
 			String pw = req.getParameter("pw");
 			String gender = req.getParameter("gender");
-			String age = req.getParameter("age");
+			String ageString = req.getParameter("age");
 			String url = "view/error.jsp";
 			HttpSession session = req.getSession();
-			try {String joinresult = PCService.join(id, pw, gender, age);
+			try {String joinresult = PCService.join(id, pw, gender, ageString);
 				if(joinresult.equals("success")) {
 					session.setAttribute("id", id);
 					session.setAttribute("pw", pw);
 					session.setAttribute("gender", gender);
-					session.setAttribute("age", age);
-					url = "crud/view.jsp";
-					log.info("회원 가입: "+ session.getAttribute("id"));
+					session.setAttribute("age", ageString);
+					url = "products.html";
+					log.info("회원 가입: "+ session.getAttribute("id "));
 				} else if(joinresult.equals("fail")) {
 					req.setAttribute("msg", "중복된 ID가 존재합니다.");
 				}
 			} catch(Exception e) {
 				req.setAttribute("msg", "가입 실패");
+				System.out.println(ageString);
+				System.out.println(gender);
+				System.out.println(id);
 			}
 			req.getRequestDispatcher(url).forward(req, res);
 		}

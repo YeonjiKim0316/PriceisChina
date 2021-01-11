@@ -22,7 +22,8 @@ public class PCService {
 		
 		
 	//회원 가입
-	public static String join(String id, String pw, String gender, int age) {
+	public static String join(String id, String pw, String gender, String ageString) {
+		int age = Integer.valueOf(ageString);
 		return ClientDAO.insert(id, pw, gender, age); 
 	}	
 

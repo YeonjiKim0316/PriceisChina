@@ -25,7 +25,7 @@ public class ProductDAO {
 	}
 	
 	// CRUD - JOIN - insert
-	public static String insertProduct(int id, String pname,int quantity, int price) {
+	public static String insertProduct(int id, String pname, int quantity, int price) {
 		EntityManager em = PublicCommon.getEntityManager();
 		EntityTransaction tx = em.getTransaction();
 		tx.begin();
