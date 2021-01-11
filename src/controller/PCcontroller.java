@@ -228,7 +228,7 @@ public class PCcontroller extends HttpServlet {
 				session.setAttribute("pw", pw);
 				session.setAttribute("gender", gender);
 				session.setAttribute("age", ageString);
-				url = "products.html";
+				url = "products.jsp";
 				log.info("회원 가입: " + session.getAttribute("id "));
 			} else if (joinresult.equals("fail")) {
 				req.setAttribute("msg", "중복된 ID가 존재합니다.");
