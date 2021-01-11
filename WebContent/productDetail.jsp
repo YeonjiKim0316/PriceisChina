@@ -16,7 +16,7 @@
 	<div class="navi" style="font-color: gray">
 	<p style="text-align: right;">
 		<a href="products.jsp"><img src="img/2.gif" width=300 align=left></a> <a href="myPage.jsp">${id}</a>
-		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="login.html" class="logout">logout</a>&nbsp;
+		&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; <a href="controller?command=logout" class="logout">logout</a>&nbsp;
 		&nbsp;&nbsp;&nbsp;&nbsp; <a href="myshopping.jsp">장바구니</a>&nbsp;
 		&nbsp;&nbsp;&nbsp;&nbsp;<br>
 		</p>
@@ -28,7 +28,7 @@
 			&emsp;&emsp;상세 설명<br><br><span id="prodDetail"></span><br><br>
 			&emsp;&emsp;가격 : <span id="prodPrice"></span><br><br>
 			&emsp;&emsp;수량선택
-			<select name="수량" id="prod" value="0">
+			<select name="수량">
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -41,7 +41,7 @@
 			<br><br><br>
 			
 			<div align=right>
-				<button onclick="location.href='myshopping.jsp?p=<%=request.getParameter("p") %>&val='+document.getElementById('prod').value">장바구니</button>
+				<button onclick="location.href='myshopping.jsp'">장바구니</button>
 				&emsp;&emsp;&emsp;
 				<button onclick="location.href='��ǰ����'">구매하기</button>
 				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
