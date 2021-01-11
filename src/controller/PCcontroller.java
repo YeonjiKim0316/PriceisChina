@@ -47,6 +47,8 @@ public class PCcontroller extends HttpServlet {
 					admin(req, res);
 				} else if (command.equals("productManager")) {
 					productManager(req, res);
+				} else if (command.equals("insertProduct")) {
+					insertProduct(req, res);
 				} else if (command.equals("deleteProduct")) {
 					deleteProduct(req, res);
 				} else if (command.equals("updateProduct")) {
@@ -69,6 +71,8 @@ public class PCcontroller extends HttpServlet {
 		}
 	}
 	
+	
+
 	//delete ordered
 	private void deleteOrdered(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String url = "view/error.jsp";
@@ -104,6 +108,7 @@ public class PCcontroller extends HttpServlet {
 									,(int)session.getAttribute("productId")
 									,(int)session.getAttribute("orderedQuantity")
 									,(String)session.getAttribute("timestamp"));
+			
 		}catch (Exception e) {
 			req.setAttribute("msg", "DB 조회 실패");
 		}
@@ -124,6 +129,23 @@ public class PCcontroller extends HttpServlet {
 		req.getRequestDispatcher(url).forward(req, res);
 	}
 	
+	//insert Product
+	private void insertProduct(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		String url = "view/error.jsp";
+		HttpSession session = req.getSession();
+		try {
+			PCService.insertProduct(Integer.parseInt((String) req.getParameter("productId")),
+					(String) req.getParameter("productName"), Integer.parseInt((String) req.getParameter("quantity")),
+					Integer.parseInt((String) req.getParameter("price")));
+			session.setAttribute("productAll", PCService.product());
+			url = "crud/productManager.jsp";
+		} catch (Exception s) {
+			req.setAttribute("errorMsg", s.getMessage());
+			s.printStackTrace();
+		}
+		req.getRequestDispatcher(url).forward(req, res);
+	}
+	
 	// delete product
 	private void deleteProduct(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String url = "view/error.jsp";
@@ -134,7 +156,6 @@ public class PCcontroller extends HttpServlet {
 		PCService.deleteProduct(productId);
 		session.setAttribute("productAll", PCService.product());
 		url = "crud/productManager.jsp";
-		log.info("제품 삭제 : "+ session.getAttribute("productId"));
 		}
 		catch (Exception e) {
 			req.setAttribute("msg", "제품 삭제 실패");

@@ -33,7 +33,7 @@
 	<br>
 		<br>
 		<!-- write Form  -->
-		<form action="../controller?insertProduct" method="post">
+		<form action="controller?insertProduct" method="post">
 
 			<input type="hidden" name="command" value="insertProduct">
 
@@ -56,8 +56,8 @@
 				</tr>
 			</table>
 			<br>
-			<br> <input type="submit" value="제품추가">&nbsp; <input
-				type="reset" value="리셋">&nbsp;
+			<br> <input type="submit" value="제품추가">&nbsp; 
+				<input type="reset" value="리셋">&nbsp;
 		</form>
 		
 		<form action="controller?command=updateProduct" method="post">
