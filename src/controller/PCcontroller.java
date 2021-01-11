@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import lombok.extern.slf4j.Slf4j;
+import priceischina.model.dto.OrderedDTO;
 import priceischina.model.dto.ProductDTO;
 import service.PCService;
 
@@ -47,6 +48,8 @@ public class PCcontroller extends HttpServlet {
 					admin(req, res);
 				} else if (command.equals("productManager")) {
 					productManager(req, res);
+				} else if (command.equals("orderedManager")) {
+					orderedManager(req, res);
 				} else if (command.equals("insertProduct")) {
 					insertProduct(req, res);
 				} else if (command.equals("deleteProduct")) {
@@ -116,6 +119,21 @@ public class PCcontroller extends HttpServlet {
 
 	}
 	
+// ordered Manager
+		private void orderedManager(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+			String url = "view/error.jsp";
+			HttpSession session = req.getSession();
+			try {
+				List<OrderedDTO> orderedAll = PCService.ordered();
+				session.setAttribute("orderedAll", orderedAll);
+				url = "crud/orderManager.jsp";
+			} catch (Exception s) {
+				req.setAttribute("msg", "DB 조회 실패");
+				s.printStackTrace();
+			}
+			req.getRequestDispatcher(url).forward(req, res);
+		}
+			
 	// update product
 	private void updateProduct(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String url = "view/error.jsp";
@@ -165,6 +183,21 @@ public class PCcontroller extends HttpServlet {
 		req.getRequestDispatcher(url).forward(req, res);
 	}
 	}
+	
+	// product Manager
+		private void productManager(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+			String url = "view/error.jsp";
+			HttpSession session = req.getSession();
+			try {
+				List<ProductDTO> productAll = PCService.product();
+				session.setAttribute("productAll", productAll);
+				url = "crud/productManager.jsp";
+			} catch (Exception s) {
+				req.setAttribute("msg", "DB 조회 실패");
+				s.printStackTrace();
+			}
+			req.getRequestDispatcher(url).forward(req, res);
+		}
 
 	// admin login
 	private void admin(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
@@ -190,20 +223,7 @@ public class PCcontroller extends HttpServlet {
 		req.getRequestDispatcher(url).forward(req, res);
 	}
 	
-	// product Manager
-	private void productManager(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		String url = "view/error.jsp";
-		HttpSession session = req.getSession();
-		try {
-			List<ProductDTO> productAll = PCService.product();
-			session.setAttribute("productAll", productAll);
-			url = "crud/productManager.jsp";
-		} catch (Exception s) {
-			req.setAttribute("msg", "DB 조회 실패");
-			s.printStackTrace();
-		}
-		req.getRequestDispatcher(url).forward(req, res);
-	}
+	
 
 	private void logout(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String url = "view/error.jsp";
