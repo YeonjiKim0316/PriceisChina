@@ -15,11 +15,15 @@ public class PCService {
 		return ClientDAO.login(id, pw);
 	}
 	
+	//admin login
+	public static String adminlogin(String adminId, String adminPw) {
+		return ClientDAO.login(adminId, adminPw);
+	}
+	
 	//로그아웃시 세션 삭제
 	public static String logout(String id, String pw) {
 		return ClientDAO.login(id, pw); 
 	}
-		
 		
 	//회원 가입
 	public static String join(String id, String pw, String gender, String ageString) {
@@ -44,23 +48,23 @@ public class PCService {
 	}
 	
 	//제품 추가
-	public static String insertProduct(int id, String name, int quantity, int price) {
-		return ProductDAO.insertProduct(id, name, quantity, price); 
+	public static String insertProduct(int productId, String name, int quantity, int price) {
+		return ProductDAO.insertProduct(productId, name, quantity, price); 
 	}
 
 	//제품 삭체
-	public static boolean deleteProduct(int id) {
-	return ProductDAO.delete(id); 
+	public static boolean deleteProduct(int productId) {
+	return ProductDAO.delete(productId); 
 	}
 
 	//제품명 수정
-	public static boolean updateName(int id, String newName) {
-	return ProductDAO.updateName(id, newName); 
+	public static boolean updateName(int productId, String newName) {
+	return ProductDAO.updateName(productId, newName); 
 	}
 	
 	//제품가격 수정
-	public static boolean updatePrice(int id, String newPrice) {
-		return ProductDAO.updateName(id, newPrice); 
+	public static boolean updatePrice(int productId, String newPrice) {
+		return ProductDAO.updateName(productId, newPrice); 
 	}
 	//주문 list 반환
 	public static ArrayList<OrderedDTO> ordered() {
