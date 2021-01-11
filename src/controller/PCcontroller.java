@@ -50,13 +50,13 @@ public class PCcontroller extends HttpServlet {
 				} else if (command.equals("deleteProduct")) {
 					deleteProduct(req, res);
 				} else if (command.equals("updateProduct")) {
-					updateProduct(req, res);
+					//updateProduct(req, res);
 				} else if (command.equals("addOrdered")) {
-					updateProduct(req, res);
+					//updateProduct(req, res);
 				} else if (command.equals("updateOrdered")) {
-					updateOrdered(req, res);
+					//updateOrdered(req, res);
 				} else if (command.equals("deleteOrdered")) {
-					deleteOrdered(req, res);
+					//deleteOrdered(req, res);
 				} else {
 					req.setAttribute("msg", "유효하지 않은 command입니다.");
 					req.getRequestDispatcher("view/error.jsp").forward(req, res);
