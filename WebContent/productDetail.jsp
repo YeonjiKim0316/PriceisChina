@@ -45,6 +45,7 @@
 				&emsp;&emsp;&emsp;
 				<button onclick="location.href='��ǰ����'">구매하기</button>
 				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+			<button onclick="location.href='products.jsp'">상품 페이지</button>
 			</div>
 		</div>
 	</div>
