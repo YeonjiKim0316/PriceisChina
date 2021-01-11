@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import lombok.extern.slf4j.Slf4j;
-import priceischina.model.dto.ProductDTO;
 import service.PCService;
 
 @WebServlet("/controller")
@@ -117,7 +115,7 @@ public class PCcontroller extends HttpServlet {
 		HttpSession session = req.getSession();
 		try{
 		PCService.updateName((int)session.getAttribute("productId"), (String)session.getAttribute("newName"));
-		url = "crud/productManager.jsp";
+		url = "admin.html";
 		}catch (Exception e) {
 			req.setAttribute("msg", "DB 조회 실패");
 		}
@@ -129,10 +127,10 @@ public class PCcontroller extends HttpServlet {
 		String url = "view/error.jsp";
 		HttpSession session = req.getSession();
 		try {
-		PCService.deleteProduct(Integer.parseInt((String)session.getAttribute("productId")));
-		url = "crud/productManager.jsp";
+		PCService.deleteProduct((int)session.getAttribute("productId"));
+		url = "admin.html";
 		}catch (Exception e) {
-			req.setAttribute("msg", "제품 삭제 실패");
+			req.setAttribute("msg", "DB 조회 실패");
 	}
 		req.getRequestDispatcher(url).forward(req, res);
 	}
@@ -166,22 +164,31 @@ public class PCcontroller extends HttpServlet {
 		String url = "view/error.jsp";
 		HttpSession session = req.getSession();
 		try {
-			List<ProductDTO> productAll = PCService.product();
-			if(productAll.size()==0) {
-				req.setAttribute("msg", "제품 데이터 없음");
-			}else {
-			session.setAttribute("productAll", productAll);
-			url = "crud/productManager.jsp";
-			}
+			req.setAttribute("productId", session.getAttribute("productId"));
+			req.setAttribute("productName", session.getAttribute("productName"));
+			req.setAttribute("quantity", session.getAttribute("quantity"));
+			req.setAttribute("price", session.getAttribute("price"));
+			
+			req.setAttribute("productAll", PCService.product());
+			url = "productManager.jsp";
 		} catch (Exception s) {
-			req.setAttribute("msg", "제품 데이터 조회 실패");
+			req.setAttribute("msg", "DB 조회 실패");
 			s.printStackTrace();
 		}
 		req.getRequestDispatcher(url).forward(req, res);
 	}
 
 	private void logout(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		req.getRequestDispatcher("logout.jsp").forward(req, res);
+		String url = "view/error.jsp";
+		HttpSession session = req.getSession();
+			try{
+			session.invalidate();
+			session = null; 
+			url = "products.jsp";
+			} catch (Exception e) {
+			req.setAttribute("msg", "로그아웃 실패");
+		}
+		req.getRequestDispatcher(url).forward(req, res);
 	}
 
 	// myPage
