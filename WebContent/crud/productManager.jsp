@@ -18,14 +18,14 @@
 		<tr>
 			<th>제품ID</th><th>제품명</th><th>제품가격</th><th>제품제고량</th><th>삭제하기</th>
 		</tr>
-	<c:forEach items="${sessionScope.productAll}" var="product">
+	<c:forEach items="${sessionScope.productAll}" var="productAll">
 		<tr>
-			<td>${product.productId}</td>
-			<td>${product.productName}</td>
-			<td>${product.quantity}</td>
-			<td>${product.price}</td>
+			<td>${productAll.productId}</td>
+			<td>${productAll.productName}</td>
+			<td>${productAll.quantity}</td>
+			<td>${productAll.price}</td>
 			<td>
-			<button Onclick="location.href='controller?command=deleteProduct&productId=${product.productId}'">삭제</button>
+			<button Onclick="location.href='controller?command=deleteProduct&productId=${productAll.productId}'">삭제</button>
 			</td>
 		</tr>
 	</c:forEach>

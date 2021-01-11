@@ -1,7 +1,6 @@
 package controller;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.ServletException;
@@ -129,10 +128,11 @@ public class PCcontroller extends HttpServlet {
 	private void deleteProduct(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String url = "view/error.jsp";
 		HttpSession session = req.getSession();
-		int productId = Integer.parseInt((String)session.getAttribute("productId"));
+		int productId = Integer.parseInt((String)req.getParameter("productId"));
 		if(productId != 0) {
 		try {
 		PCService.deleteProduct(productId);
+		session.setAttribute("productAll", PCService.product());
 		url = "crud/productManager.jsp";
 		log.info("제품 삭제 : "+ session.getAttribute("productId"));
 		}
