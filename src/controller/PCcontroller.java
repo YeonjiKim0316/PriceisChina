@@ -52,7 +52,7 @@ public class PCcontroller extends HttpServlet {
 				} else if (command.equals("updateProduct")) {
 					updateProduct(req, res);
 				} else if (command.equals("addOrdered")) {
-					updateProduct(req, res);
+					addOrdered(req, res);
 				} else if (command.equals("updateOrdered")) {
 					updateOrdered(req, res);
 				} else if (command.equals("deleteOrdered")) {
