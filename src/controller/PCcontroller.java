@@ -43,8 +43,8 @@ public class PCcontroller extends HttpServlet {
 					delete(req, res);
 				} else if (command.equals("admin")) {
 					admin(req, res);
-				} else if (command.equals("insertProduct")) {
-					insertProduct(req, res);
+				} else if (command.equals("productManager")) {
+					productManager(req, res);
 				} else if (command.equals("deleteProduct")) {
 					deleteProduct(req, res);
 				} else if (command.equals("updateProduct")) {
@@ -159,17 +159,20 @@ public class PCcontroller extends HttpServlet {
 		req.getRequestDispatcher(url).forward(req, res);
 	}
 	
-	// product insert
-	private void insertProduct(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+	// product Manager
+	private void productManager(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String url = "view/error.jsp";
 		HttpSession session = req.getSession();
 		try {
-			PCService.insertProduct((int) session.getAttribute("productId"),
-					(String) session.getAttribute("productName"), (int) session.getAttribute("quantity"),
-					(int) session.getAttribute("price"));
-			url = "admin.html";
+			req.setAttribute("productId", session.getAttribute("productId"));
+			req.setAttribute("productName", session.getAttribute("productName"));
+			req.setAttribute("quantity", session.getAttribute("quantity"));
+			req.setAttribute("price", session.getAttribute("price"));
+			
+			req.setAttribute("productAll", PCService.product());
+			url = "productManager.jsp";
 		} catch (Exception s) {
-			req.setAttribute("errorMsg", s.getMessage());
+			req.setAttribute("msg", "DB 조회 실패");
 			s.printStackTrace();
 		}
 		req.getRequestDispatcher(url).forward(req, res);
