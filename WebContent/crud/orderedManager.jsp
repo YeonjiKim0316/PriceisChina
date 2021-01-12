@@ -83,6 +83,6 @@
 			<input type="reset"	value="취소">&nbsp;
 		</form>
 		<br><br><br><br><br>
-		<a href="${pageContext.request.contextPath}/products.jsp">뒤로가기</a>
+		<a href="${pageContext.request.contextPath}/admin.html">뒤로가기</a>
 </body>
 </html>
