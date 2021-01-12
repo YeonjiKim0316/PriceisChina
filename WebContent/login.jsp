@@ -1,10 +1,12 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+    
 <!DOCTYPE html>
 <html>
-
 <head>
 <meta charset="UTF-8">
-<title>Login</title>
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<title>login</title>
 </head>
 <body>
 
@@ -20,13 +22,11 @@
 &nbsp;
 <img src="img/china1.png" width=400>
 <p>
-	<form action="controller?command=login" method="post">
-			&nbsp;User&nbsp; ID : <input type="text" name="id"> <br>
-						Password: <input type="password" name="pw"> <br>
+			&nbsp;User&nbsp; ID : <input type="text" name="testid"> <br>
+						Password: <input type="password" name="testpw"> <br>
 			<br><br>
 				
-			<button onclick="submit">로그인</button>
-	</form>
+			<button onclick="location.href='controller?command=login'">로그인</button>
 			<button onclick="location.href='./crud/join.jsp'">회원가입</button><br><br>
 			<button onclick="location.href='products.jsp'">상품 페이지</button>
 			<button onclick="location.href='admin.html'">admin</button>
