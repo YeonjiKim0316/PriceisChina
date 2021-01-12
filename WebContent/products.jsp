@@ -91,7 +91,7 @@
 			
 			&nbsp;&nbsp;&nbsp;&nbsp;<br><br><br>
 		</p>
-	</div>
+	</div><br><br>
 <div class="container" align=center>
 <div class="img-with-text"><img src="img/product1.png" width=300 height=300 onclick="location.href='productDetail.jsp?p=1'"><p> 
 		${sessionScope.productAll[1].productName}<br>${sessionScope.productAll[1].price}</p>
