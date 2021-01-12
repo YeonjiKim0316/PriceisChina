@@ -60,11 +60,10 @@
 					<td><input type="text" name="timestamp"></td>
 				</tr>
 			</table>
-			<br>
 			<br> <input type="submit" value="주문추가">&nbsp; 
 				<input type="reset" value="리셋">&nbsp;
 		</form>
-		
+		<br><br>
 		<form action="controller?command=updateOrdered" method="post">
 			<!-- update Form  -->
 			<table border="1" cellspacing="1">
@@ -78,10 +77,12 @@
 					</td>
 					</tr>
 			</table>
-			<p />
+			<br>
 
 			<input type="submit" value="주문수정"> &nbsp; 
 			<input type="reset"	value="취소">&nbsp;
 		</form>
+		<br><br><br><br><br>
+		<a href="${pageContext.request.contextPath}/products.jsp">뒤로가기</a>
 </body>
 </html>
