@@ -16,7 +16,7 @@
 <center>
 ${id}님의 비밀번호를 ${pw}로 변경하였습니다.
 <p><p>
- <input type="button" value="myPage" Onclick="location.href='myPage.jsp'"> <input type="button" 
+<input type="button" 
  value="쇼핑하기" Onclick="location.href='products.jsp'"> 
 </center>
 </body>
