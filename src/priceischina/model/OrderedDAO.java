@@ -1,6 +1,8 @@
 package priceischina.model;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 import javax.persistence.EntityManager;
 import javax.persistence.EntityTransaction;
@@ -45,6 +47,26 @@ public class OrderedDAO {
 		}
 		return result;
 	}
+	
+//	public static boolean insertClientOrder(int orderNo, String id, int productId, int orderedQuantity, String timestamp) {
+//		EntityManager em = PublicCommon.getEntityManager();
+//		EntityTransaction tx = em.getTransaction();
+//		boolean result = false;
+//		try {
+//			tx.begin();
+//			OrderedDTO neworder = new OrderedDTO(new orderNo(sequence ordered_seq), id, productId, orderedQuantity, new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date(System.currentTimeMillis())));
+//			em.persist(neworder);
+//			result = true;
+//			tx.commit();
+//		}catch(Exception e) {
+//			e.printStackTrace();
+//			throw e;
+//		}finally {
+//			em.close();
+//		}
+//		return result;
+//	}
+
 
 	// CRUD - UPDATEQuatity
 	public static boolean updateorderedQuantity(int orderNo, int neworderQuantity) {

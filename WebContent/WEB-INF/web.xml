@@ -3,5 +3,6 @@
   <display-name>step03_project</display-name>
   <welcome-file-list>
     <welcome-file>products.jsp</welcome-file>
+    <welcome-file>order.jsp</welcome-file>
   </welcome-file-list>
 </web-app>

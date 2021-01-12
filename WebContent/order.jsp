@@ -1,10 +1,12 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ page import="priceischina.model.dto.OrderedDTO"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="EUC-KR">
-<title>ÁÖ¹® ³»¿ª º¸±â</title>
+<meta charset="UTF-8">
+<title>ì£¼ë¬¸ ë‚´ì—­ ë³´ê¸°</title>
 </head>
 <body>
 	<style type="text/css">
@@ -36,9 +38,9 @@
   <button>${id}</button>
   <div class="dropdown-content">
 	<div id="buttons">
-		<button onclick="acyncMovePage()">È¸¿øÁ¤º¸ °ü¸®</button><br>
-  		<button onclick="acyncMovePage1()">Àå¹Ù±¸´Ï È®ÀÎ</button><br>
-  		<button onclick="acyncMovePage2()">ÁÖ¹®³»¿ª º¸±â</button></div>
+		<button onclick="acyncMovePage()">íšŒì›ì •ë³´ ê´€ë¦¬</button><br>
+  		<button onclick="acyncMovePage1()">ì¥ë°”êµ¬ë‹ˆ í™•ì¸</button><br>
+  		<button onclick="acyncMovePage2()">ì£¼ë¬¸ë‚´ì—­ ë³´ê¸°</button></div>
   		<div id="bodyContents"></div></div>
 		<script type="text/javascript">
  
@@ -79,15 +81,34 @@
 		xhr.send();
 		
 	}
-</script></c:if> <c:if test="${empty id}"> <a href="crud/join.jsp">°¡ÀÔÇÏ±â</a></c:if>
+</script></c:if> <c:if test="${empty id}"> <a href="crud/join.jsp">ê°€ì…í•˜ê¸°</a></c:if>
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:if test="${not empty id}"> <a href="controller?command=logout" class="logout">logout</a></c:if><c:if test="${empty id}"> <a href="login.html" class="login">login</a></c:if>&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp; <a href="myshopping.jsp">Àå¹Ù±¸´Ï</a>&nbsp;
-			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:if test="${id=='testadmin'}"> <a href="admin.html">°ü¸®ÀÚ ¸ğµå</a></c:if>&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp; <a href="myshopping.jsp">ì¥ë°”êµ¬ë‹ˆ</a>&nbsp;
+			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:if test="${id=='testadmin'}"> <a href="admin.html">ê´€ë¦¬ì ëª¨ë“œ</a></c:if>&nbsp;
 			
 			&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
 		</p>
-	</div>
-
-	
+	</div><br><br>
+	<div class="container" style="font-color: gray" align=center>
+		<h3>ì£¼ë¬¸ ë‚´ì—­ list</h3>
+		<table border="1">
+		<tr>
+			<th>ì£¼ë¬¸ë²ˆí˜¸</th><th>ê³ ê°ì•„ì´ë””</th><th>ì œí’ˆì•„ì´ë””</th><th>ì£¼ë¬¸ìˆ˜ëŸ‰</th><th>ì£¼ë¬¸ì‹œê°„</th><th>ì‚­ì œí•˜ê¸°</th>
+		</tr>
+	<c:forEach items="${sessionScope.orderedAll}" var="orderedAll">
+		<tr>
+			<td>${orderedAll.orderNo}</td>
+			<td>${orderedAll.id}</td>
+			<td>${orderedAll.productId}</td>
+			<td>${orderedAll.orderedQuantity}</td>
+			<td>${orderedAll.timestamp}</td>
+			<td>
+			<button Onclick="location.href='controller?command=deleteOrdered&orderNo=${orderedAll.orderNo}'">ì‚­ì œ</button>
+			</td>
+		</tr>
+	</c:forEach>
+	</table>
+	<br>
+		<br>
 </body>
 </html>

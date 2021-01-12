@@ -100,7 +100,7 @@ public class PCcontroller extends HttpServlet {
 									,Integer.parseInt((String)req.getParameter("orderedQuantity"))
 									,(String)req.getParameter("timestamp"));
 			session.setAttribute("orderedAll", PCService.ordered());
-			url = "crud/orderedManager.jsp";
+			url = "order.jsp";
 		}catch (Exception e) {
 			req.setAttribute("msg", "DB 조회 실패");
 		}
@@ -281,7 +281,7 @@ public class PCcontroller extends HttpServlet {
 				session.setAttribute("gender", gender);
 				session.setAttribute("age", ageString);
 				url = "products.jsp";
-				log.info("회원 가입: " + session.getAttribute("id "));
+				log.info("회원 가입: " + id);
 			} else if (joinresult.equals("fail")) {
 				req.setAttribute("msg", "중복된 ID가 존재합니다.");
 			}
@@ -300,7 +300,7 @@ public class PCcontroller extends HttpServlet {
 			if (PCService.update(id, newPw)) {
 				session.setAttribute("pw", newPw);
 				url = "crud/updateSuccess.jsp";
-				log.info("회원정보 수정 : " + session.getAttribute("id"));
+				log.info("비밀번호 수정 : " + id);
 			} else {
 				req.setAttribute("msg", "수정 실패");
 			}
@@ -317,7 +317,7 @@ public class PCcontroller extends HttpServlet {
 		try {
 			PCService.deleteID(id);
 			url = "crud/deleteSuccess.jsp";
-			log.info("회원 탈퇴 : " + session.getAttribute("id"));
+			log.info("회원 탈퇴 : " + id);
 		} catch (Exception e) {
 			e.printStackTrace();
 			req.setAttribute("msg", "회원 삭제시 에러");

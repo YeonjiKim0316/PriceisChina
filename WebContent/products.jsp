@@ -2,6 +2,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="priceischina.model.dto.ProductDTO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
+
 <html>
 <head>
 <meta charset="EUC-KR">
@@ -9,6 +10,7 @@
 <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
+<body onload="prodView(<%=request.getParameter("p") %>)">
 	<style type="text/css">
     .img-with-text { float: left; margin-left: 10em; text-align: left}
     

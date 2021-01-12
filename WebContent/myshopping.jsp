@@ -135,7 +135,7 @@ function draw(){
 }
 </script>
 <br><br><br><br><br>
-<p align=right>총계 : <span id="total"></span><br><br><button onclick="clearList()">장바구니 삭제</button>&emsp;&emsp;&emsp;<button>구매하기</button></p>
+<p align=right>총계 : <span id="total"></span><br><br><button onclick="clearList()">장바구니 삭제</button>&emsp;&emsp;&emsp;<button onclick="controller?command=addOrdered">구매하기</button></p>
 
 </body>
 </html>
