@@ -82,8 +82,10 @@ public class PCcontroller extends HttpServlet {
 			PCService.updateorderedQuantity(Integer.parseInt((String)req.getParameter("orderNo"))
 					,Integer.parseInt((String)req.getParameter("neworderQuantity")));
 			session.setAttribute("orderedAll", PCService.ordered());
+			log.info("주문 정보 수정" + PCService.ordered());
 			url = "crud/orderedManager.jsp";
 		}catch (Exception e) {
+			log.info("주문 정보 수정 실패" + PCService.ordered());
 			req.setAttribute("msg", "DB 조회 실패");
 		}
 		req.getRequestDispatcher(url).forward(req, res);
@@ -100,9 +102,11 @@ public class PCcontroller extends HttpServlet {
 									,Integer.parseInt((String)req.getParameter("orderedQuantity"))
 									,(String)req.getParameter("timestamp"));
 			session.setAttribute("orderedAll", PCService.ordered());
+			log.info("관리자가 주문 추가 : " + PCService.ordered());
 			url = "order.jsp";
 		}catch (Exception e) {
 			req.setAttribute("msg", "DB 조회 실패");
+			log.info("관리자가 주문 추가  실패 : " + PCService.ordered());
 		}
 		req.getRequestDispatcher(url).forward(req, res);
 
@@ -117,10 +121,12 @@ public class PCcontroller extends HttpServlet {
 			try {
 			PCService.deleteOrdered(orderNo);
 			session.setAttribute("orderedAll", PCService.ordered());
+			log.info("관리자가 주문 삭제 : " + PCService.ordered());
 			url = "crud/orderedManager.jsp";
 			}
 			catch (Exception e) {
 				req.setAttribute("msg", "주문 삭제 실패");
+				log.info("관리자가 주문 삭제  실패 : " + PCService.ordered());
 				e.printStackTrace();	
 		}
 			req.getRequestDispatcher(url).forward(req, res);
@@ -150,8 +156,10 @@ public class PCcontroller extends HttpServlet {
 		PCService.updateName(Integer.parseInt((String)req.getParameter("productId")), (String)req.getParameter("newName"));
 		session.setAttribute("productAll", PCService.product());
 		url = "crud/productManager.jsp";
+		log.info("관리자가 판매 상품 변경 : " + PCService.product());
 		}catch (Exception e) {
 			req.setAttribute("msg", "DB 조회 실패");
+			log.info("관리자가 판매 상품 변경 실패 : " + PCService.product());
 		}
 		req.getRequestDispatcher(url).forward(req, res);
 	}
@@ -165,9 +173,11 @@ public class PCcontroller extends HttpServlet {
 					(String) req.getParameter("productName"), Integer.parseInt((String) req.getParameter("quantity")),
 					Integer.parseInt((String) req.getParameter("price")));
 			session.setAttribute("productAll", PCService.product());
+			log.info("관리자가 판매 상품 추가 : " + PCService.product());
 			url = "crud/productManager.jsp";
 		} catch (Exception s) {
 			req.setAttribute("errorMsg", s.getMessage());
+			log.info("관리자가 판매 상품 추가 : " + PCService.product());
 			s.printStackTrace();
 		}
 		req.getRequestDispatcher(url).forward(req, res);
@@ -182,10 +192,12 @@ public class PCcontroller extends HttpServlet {
 		try {
 		PCService.deleteProduct(productId);
 		session.setAttribute("productAll", PCService.product());
+		log.info("관리자가 판매 상품 삭제 : " + PCService.product());
 		url = "crud/productManager.jsp";
 		}
 		catch (Exception e) {
 			req.setAttribute("msg", "제품 삭제 실패");
+			log.info("관리자가 판매 상품 삭제 실패 : " + PCService.product());
 			e.printStackTrace();	
 	}
 		req.getRequestDispatcher(url).forward(req, res);
@@ -225,7 +237,9 @@ public class PCcontroller extends HttpServlet {
 	private void logout(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String url = "view/error.jsp";
 		HttpSession session = req.getSession();
+		String id = req.getParameter("id");
 			try{
+			log.info("회원 로그아웃 : " + id);
 			session.invalidate();
 			session = null; 
 			url = "products.jsp";
@@ -256,8 +270,10 @@ public class PCcontroller extends HttpServlet {
 				log.info(id + " 로그인 성공");
 			} else if (loginresult.equals("id")) {
 				req.setAttribute("msg", "ID를 다시 확인해주세요");
+				log.info(id + " 로그인 실패");
 			} else if (loginresult.equals("pw")) {
 				req.setAttribute("msg", "비밀번호를 다시 확인해주세요");
+				log.info(id + " 로그인 실패");
 			}
 		} catch (Exception e) {
 			req.setAttribute("msg", "DB 조회 실패");
@@ -281,12 +297,13 @@ public class PCcontroller extends HttpServlet {
 				session.setAttribute("gender", gender);
 				session.setAttribute("age", ageString);
 				url = "products.jsp";
-				log.info("회원 가입: " + id);
+				log.info("회원 가입 : " + id);
 			} else if (joinresult.equals("fail")) {
 				req.setAttribute("msg", "중복된 ID가 존재합니다.");
 			}
 		} catch (Exception e) {
 			req.setAttribute("msg", "가입 실패");
+			log.info("회워 가입 실패 : " + id);
 		}
 		req.getRequestDispatcher(url).forward(req, res);
 	}
