@@ -44,8 +44,6 @@ public class PCcontroller extends HttpServlet {
 					logout(req, res);
 				} else if (command.equals("delete")) {
 					delete(req, res);
-				} else if (command.equals("admin")) {
-					admin(req, res);
 				} else if (command.equals("productManager")) {
 					productManager(req, res);
 				} else if (command.equals("dataManager")) {
@@ -224,32 +222,6 @@ public class PCcontroller extends HttpServlet {
 			req.getRequestDispatcher(url).forward(req, res);
 		}
 
-	// admin login
-	private void admin(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-		String adminId = req.getParameter("adminId");
-		String adminPw = req.getParameter("adminPw");
-		String url = "view/error.jsp";
-		HttpSession session = req.getSession();
-		try {
-			String loginresult = PCService.adminlogin(adminId, adminPw);
-			if (loginresult.equals("admin success")) {
-				session.setAttribute("adminId", adminId);
-				session.setAttribute("adminPw", adminPw);
-				url = "admin.html";
-				log.info(adminId + "매니저 로그인 성공");
-			} else if (loginresult.equals("adminId")) {
-				req.setAttribute("msg", "adminID를 다시 확인해주세요");
-			} else if (loginresult.equals("pw")) {
-				req.setAttribute("msg", "admin 비밀번호를 다시 확인해주세요");
-			}
-		} catch (Exception e) {
-			req.setAttribute("msg", "DB 조회 실패");
-		}
-		req.getRequestDispatcher(url).forward(req, res);
-	}
-	
-	
-
 	private void logout(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		String url = "view/error.jsp";
 		HttpSession session = req.getSession();
@@ -263,10 +235,6 @@ public class PCcontroller extends HttpServlet {
 		req.getRequestDispatcher(url).forward(req, res);
 	}
 
-	// myPage
-//	private void mypage(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-//		req.getRequestDispatcher("myPage.jsp").forward(req, res);
-		
 	// update하기
 	private void update(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
 		req.getRequestDispatcher("crud/update.jsp").forward(req, res);
