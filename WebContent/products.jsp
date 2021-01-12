@@ -87,13 +87,13 @@
 			&nbsp;&nbsp;&nbsp;&nbsp; <a href="myshopping.jsp">장바구니</a>&nbsp;
 			&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<c:if test="${id=='testadmin'}"> <a href="admin.html">관리자 모드</a></c:if>&nbsp;
 			
-			&nbsp;&nbsp;&nbsp;&nbsp;<br><br>
+			&nbsp;&nbsp;&nbsp;&nbsp;<br><br><br>
 		</p>
 	</div>
 <div class="container" align=center>
-		<div class="img-with-text"><img src="img/product1.png" width=300 height=300 onclick="location.href='productDetail.jsp?p=1'"><p> 
+<div class="img-with-text"><img src="img/product1.png" width=300 height=300 onclick="location.href='productDetail.jsp?p=1'"><p> 
 		${sessionScope.productAll[1].productName}<br>${sessionScope.productAll[1].price}</p>
-		수량선택
+		수량선택&nbsp;&nbsp;&nbsp;&nbsp;
 			<select name="수량" id="prod1" value="0">
 					<option value="1">1</option>
 					<option value="2">2</option>
@@ -103,8 +103,7 @@
 					<option value="6">6</option>
 					<option value="7">7</option>
 					<option value="8">8</option>
-				</select><br>
-				<button onclick="location.href='myshopping.jsp?p1='+document.getElementById('prod1').value">장바구니</button></div>
+				</select><br><button onclick="location.href='myshopping.jsp?p1='+document.getElementById('prod1').value">장바구니</button></div>
 		<div class="img-with-text"><img src="img/product2.png" width=300 height=300 onclick="location.href='productDetail.jsp?p=2'"><p>
 		${sessionScope.productAll[0].productName}<br>${sessionScope.productAll[0].price}</p>
 		수량선택
