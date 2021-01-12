@@ -91,10 +91,10 @@
 			
 			&nbsp;&nbsp;&nbsp;&nbsp;<br><br><br>
 		</p>
-	</div>
+	</div><br><br>
 <div class="container" align=center>
 <div class="img-with-text"><img src="img/product1.png" width=300 height=300 onclick="location.href='productDetail.jsp?p=1'"><p> 
-		${sessionScope.productAll[1].productName}<br>${sessionScope.productAll[1].price}</p>
+		bluetooth earphone<br>15000</p>
 		수량선택&nbsp;&nbsp;&nbsp;&nbsp;
 			<select name="수량" id="prod1" value="0">
 					<option value="1">1</option>
@@ -107,7 +107,7 @@
 					<option value="8">8</option>
 				</select><br><button onclick="location.href='myshopping.jsp?p1='+document.getElementById('prod1').value">장바구니</button></div>
 		<div class="img-with-text"><img src="img/product2.png" width=300 height=300 onclick="location.href='productDetail.jsp?p=2'"><p>
-		${sessionScope.productAll[0].productName}<br>${sessionScope.productAll[0].price}</p>
+		handwash dispenser<br>20000</p>
 		수량선택
 			<select name="수량" id="prod2" value="0">
 					<option value="1">1</option>
