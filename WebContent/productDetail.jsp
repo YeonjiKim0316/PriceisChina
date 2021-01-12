@@ -22,7 +22,8 @@
 			&nbsp;&nbsp;&nbsp;&nbsp; <a href="myshopping.jsp">장바구니</a>&nbsp;
 			&nbsp;&nbsp;&nbsp;&nbsp;<br>
 		</p>
-	</div>
+	</div>	
+	
 <br><br><br>
 	<div class="div1" id = "div1">
 		<img class='img' src=img/product<%=request.getParameter("p") %>.png width=400>
@@ -31,7 +32,7 @@
 			&emsp;&emsp;상세 설명<br><br><span id="prodDetail"></span><br><br>
 			&emsp;&emsp;가격 : <span id="prodPrice"></span><br><br>
 			&emsp;&emsp;수량선택
-			<select name="수량">
+			<select name="수량" id="prod" value="0">
 					<option value="1">1</option>
 					<option value="2">2</option>
 					<option value="3">3</option>
@@ -54,7 +55,7 @@
 	</div>
 	<br><br><br>
 	<div id = "detail" align=center></div>
-
+	
 	<script type="text/javascript">
 	function prodView(v) {
 		var xhttp = new XMLHttpRequest();
