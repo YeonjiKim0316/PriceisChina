@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ page import="priceischina.model.dto.ProductDTO"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %> 
 <html>
 <head>
 <meta charset="EUC-KR">
 <title>Insert title here</title>
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
 	<style type="text/css">
@@ -23,7 +25,7 @@
 	
 	<div class="container" align=center>
 		<div class="img-with-text"><img src="img/product1.png" width=300 height=300 onclick="location.href='productDetail.jsp?p=1'"><p> 
-		블루투스 이어폰<br>15000원</p>
+		${sessionScope.productAll[1].productName}<br>${sessionScope.productAll[1].price}</p>
 		수량선택
 			<select name="수량" id="prod1" value="0">
 					<option value="1">1</option>
@@ -37,7 +39,7 @@
 				</select><br>
 				<button onclick="location.href='myshopping.jsp?p1='+document.getElementById('prod1').value">장바구니</button></div>
 		<div class="img-with-text"><img src="img/product2.png" width=300 height=300 onclick="location.href='productDetail.jsp?p=2'"><p>
-		거품비누 디스펜서<br>20000원</p>
+		${sessionScope.productAll[0].productName}<br>${sessionScope.productAll[0].price}</p>
 		수량선택
 			<select name="수량" id="prod2" value="0">
 					<option value="1">1</option>
@@ -52,5 +54,9 @@
 				<button onclick="location.href='myshopping.jsp?p2='+document.getElementById('prod2').value">장바구니</button></div>
 		</div>
 	</body>
+	<script type="text/javascript">
+	
+	
+	</script>
 	</html>
 

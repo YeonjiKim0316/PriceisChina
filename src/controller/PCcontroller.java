@@ -201,7 +201,7 @@ public class PCcontroller extends HttpServlet {
 		try {
 			List<ProductDTO> productAll = PCService.product();
 			session.setAttribute("productAll", productAll);
-			url = "prodData2.jsp";
+			url = "prodMaker.jsp";
 		} catch (Exception s) {
 			req.setAttribute("msg", "DB 조회 실패");
 			s.printStackTrace();
