@@ -1,6 +1,6 @@
+drop table ordered cascade constraint;
 drop table client cascade constraint;
 drop table product cascade constraint;
-drop table ordered cascade constraint;
 drop sequence ordered_seq cascade constraint;
 
 create sequence ordered_seq;
@@ -14,7 +14,7 @@ create table client (
 
 create table product (
 	productId number(10) primary key,
-	productName varchar(20) not null,
+	productName varchar2(20) not null,
 	quantity number(10) not null,
 	price number(30) not null
 );

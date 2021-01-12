@@ -48,6 +48,8 @@ public class PCcontroller extends HttpServlet {
 					admin(req, res);
 				} else if (command.equals("productManager")) {
 					productManager(req, res);
+				} else if (command.equals("dataManager")) {
+					dataManager(req, res);
 				} else if (command.equals("orderedManager")) {
 					orderedManager(req, res);
 				} else if (command.equals("insertProduct")) {
@@ -190,6 +192,21 @@ public class PCcontroller extends HttpServlet {
 	}
 		req.getRequestDispatcher(url).forward(req, res);
 	}
+	}
+			
+	// product Manager
+	private void dataManager(HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+		String url = "view/error.jsp";
+		HttpSession session = req.getSession();
+		try {
+			List<ProductDTO> productAll = PCService.product();
+			session.setAttribute("productAll", productAll);
+			url = "prodData2.jsp";
+		} catch (Exception s) {
+			req.setAttribute("msg", "DB 조회 실패");
+			s.printStackTrace();
+		}
+		req.getRequestDispatcher(url).forward(req, res);
 	}
 	
 	// product Manager

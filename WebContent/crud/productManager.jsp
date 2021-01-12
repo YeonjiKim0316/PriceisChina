@@ -22,8 +22,8 @@
 		<tr>
 			<td>${productAll.productId}</td>
 			<td>${productAll.productName}</td>
-			<td>${productAll.quantity}</td>
 			<td>${productAll.price}</td>
+			<td>${productAll.quantity}</td>
 			<td>
 			<button Onclick="location.href='controller?command=deleteProduct&productId=${productAll.productId}'">삭제</button>
 			</td>
